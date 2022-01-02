@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Movies {
@@ -10,8 +11,12 @@ public class Movies {
         this.allMovies = allMovies;
     }
 
-    public displayMovies(){
+    public void displayMovies() {
+        //Traversing list through Iterator
+        Iterator itr = this.allMovies.iterator();//getting the Iterator
+        while (itr.hasNext()) {//check if iterator has the elements
+            System.out.println(itr.next());//printing the element and move to next
+        }
 
     }
-
 }
