@@ -16,7 +16,11 @@ public class Main {
         m_list.add(m_PiratesOfTheCaribbean);
         Movies Movies_List = new Movies(m_list);
 
-        Movies_List.displayMovies();
+//        Movies_List.displayMovies();
+
+        for(EnumDimensions D : EnumDimensions.values()) {
+            System.out.println(D);
+        }
     }
 
 }
