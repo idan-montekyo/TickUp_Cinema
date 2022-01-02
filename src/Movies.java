@@ -5,7 +5,7 @@ import java.util.List;
 public class Movies {
 
     // Fields
-    private List<Movie> allMovies = new ArrayList<Movie>();
+    private List<Movie> allMovies;
 
     public Movies(List<Movie> allMovies) {
         this.allMovies = allMovies;
@@ -17,6 +17,10 @@ public class Movies {
         while (itr.hasNext()) {//check if iterator has the elements
             System.out.println(itr.next());//printing the element and move to next
         }
+    }
 
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
