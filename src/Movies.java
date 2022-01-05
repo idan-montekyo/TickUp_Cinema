@@ -11,6 +11,7 @@ public class Movies {
     // Constructor
 
     public Movies(List<Movie> allMovies) {
+
         this.allMovies = allMovies;
     }
 

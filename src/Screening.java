@@ -12,7 +12,6 @@ public class Screening {
 
     // Constructor
 
-    // public Screening(int theater_type, int theaterNumber, ScreeningTime st)
     public Screening(EnumTheaterType theater_type, int theaterNumber, String st) {
         switch (theater_type) {
             case THEATER_STANDARD -> this.theater = new StandardTheater(theaterNumber);
