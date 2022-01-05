@@ -2,8 +2,7 @@ package Classes;
 
 import java.util.HashMap;
 
-// Crate a class for representing kind of ticket at the cinema
-
+// Crate a class for holding all three kinds of tickets.
 public class Ticket {
 
     // Fields

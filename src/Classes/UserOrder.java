@@ -1,5 +1,6 @@
 package Classes;
 
+// Crate a class for a single order.
 public class UserOrder {
 
     // Constant

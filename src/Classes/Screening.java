@@ -1,5 +1,6 @@
-package Classes;// Create a class for manage screening time for each movie
+package Classes;
 
+// Create a class for managing screening time for each movie.
 public class Screening {
 
     // Fields

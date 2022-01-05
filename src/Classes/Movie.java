@@ -3,8 +3,7 @@ package Classes;
 import java.util.ArrayList;
 import java.util.List;
 
-
-// Crate a class which represent specific movie
+// Create a class for a specific movie
 public class Movie {
 
     // fields

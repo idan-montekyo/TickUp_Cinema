@@ -3,6 +3,7 @@ package Classes;
 import java.util.Iterator;
 import java.util.List;
 
+// Crate a class that holds all user-orders.
 public class Orders {
 
     // Fields

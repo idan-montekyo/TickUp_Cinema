@@ -1,5 +1,6 @@
-package Classes;// Crate a class for the VIP theater
+package Classes;
 
+// Crate a class for the VIP theater.
 public class VipTheater extends Theater{
 
     // Constructor

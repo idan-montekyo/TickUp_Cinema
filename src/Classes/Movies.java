@@ -3,7 +3,7 @@ package Classes;
 import java.util.Iterator;
 import java.util.List;
 
-// Create a class which represent all movies
+// Create a class that holds all the movies.
 public class Movies {
 
     // Fields

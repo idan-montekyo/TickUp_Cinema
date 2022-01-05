@@ -1,5 +1,6 @@
-package Classes;// Create an abstract class for theater
+package Classes;
 
+// Create an abstract class for theater.
 public abstract class Theater {
 
     //Fields
