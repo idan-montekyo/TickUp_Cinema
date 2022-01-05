@@ -8,6 +8,7 @@ abstract class Theater {
     private final int numCols;
     private final int price;
     protected int theaterNumber;
+    private String theaterType;
 
     // Constructor
 
@@ -30,6 +31,20 @@ abstract class Theater {
 
     public int getPrice() {
         return price;
+    }
+
+    public int getTheaterNumber() {
+        return theaterNumber;
+    }
+
+    public String getTheaterType() {
+        return theaterType;
+    }
+
+    // Setters
+
+    public void setTheaterType(String theaterType) {
+        this.theaterType = theaterType;
     }
 
     @Override

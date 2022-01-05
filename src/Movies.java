@@ -24,6 +24,12 @@ public class Movies {
         }
     }
 
+    // Getter
+
+    public List<Movie> getAllMovies() {
+        return allMovies;
+    }
+
     @Override
     public String toString() {
         return super.toString();

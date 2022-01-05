@@ -37,4 +37,23 @@ public class Screening {
         return "Screening id " + this.screeningID + "\nScreening start time " + this.startingTime
                 + "\nTheater info:\n" + this.theater + "\n";
     }
+
+    // Getters
+
+
+    public static int getID() {
+        return ID;
+    }
+
+    public Theater getTheater() {
+        return theater;
+    }
+
+    public String getStartingTime() {
+        return startingTime;
+    }
+
+    public int getScreeningID() {
+        return screeningID;
+    }
 }

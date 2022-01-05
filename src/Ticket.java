@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.HashMap;
 
 // Crate a class for representing kind of ticket at the cinema
@@ -5,12 +7,11 @@ import java.util.HashMap;
 public class Ticket {
 
     // Fields
-
-
-    private HashMap<String, Integer> ticketsQuantity = new HashMap<String, Integer>();
+    private HashMap<String, Integer> ticketsQuantity;
 
     //Constructor - Initialize 3 types of tickets
     public Ticket() {
+        this.ticketsQuantity = new HashMap<>();
         this.ticketsQuantity.put("Standard", 0);
         this.ticketsQuantity.put("Student", 0);
         this.ticketsQuantity.put("Veteran", 0);
@@ -23,12 +24,17 @@ public class Ticket {
     }
 
     // Set quantity of specific ticket type for specific order
-    public void SetNumOfTypeTickets(String type, int numOfTickets) {
+    public void setNumOfTypeTickets(String type, int numOfTickets) {
 
-        this.ticketsQuantity.put("Student", numOfTickets);
+        this.ticketsQuantity.put(type, numOfTickets);
     }
 
-
+    @Override
+    public String toString() {
+        return "Amount of Standard-tickets: " + this.ticketsQuantity.get("Standard") +
+                "\nAmount of Student-tickets: " + this.ticketsQuantity.get("Student") +
+                "\nAmount of Veteran-tickets: " + this.ticketsQuantity.get("Veteran");
+    }
 
     // Display all quantity of all types of ticket at specific order
     public void displayAllNumOfTypeTickets() {

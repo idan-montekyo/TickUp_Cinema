@@ -9,22 +9,21 @@ public class Main {
         Times.put(16, "16:00");
         Times.put(20, "20:00");
 
-        Movies Movies_List = create_movies_list();
+        Movies movieList = create_movie_list();
+        List<UserOrder> userOrders = create_user_orders(movieList);
 
-        Movies_List.displayMovies();
+//        movieList.displayMovies();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(userOrders);
 
 //        System.out.println(Movies_List.);
 
 
-//        Screening s1 = new Screening(EnumTheaterType.THEATER_STANDARD, 5, Times.get(7));
-//        Screening s2 = new Screening(EnumTheaterType.THEATER_IMAX, 3, Times.get(12));
-//        Screening s3 = new Screening(EnumTheaterType.THEATER_VIP, 7, Times.get(16));
-//        System.out.println(s1);
-//        System.out.println(s2);
-//        System.out.println(s3);
     }
 
-    public static Movies create_movies_list() {
+    public static Movies create_movie_list() {
         HashMap<Integer, String> Times = new HashMap<>();
         Times.put(8, "8:00");
         Times.put(12, "12:00");
@@ -80,4 +79,21 @@ public class Main {
 
         return (new Movies(m_list));
     }
+
+    public static List<UserOrder> create_user_orders(Movies movieList) {
+        List<UserOrder> userOrders = new ArrayList<>();
+
+
+        UserOrder order1 = new UserOrder("050-244-5837", movieList.getAllMovies().get(0),
+                movieList.getAllMovies().get(0).getScreeningsTime().get(3), 1, 2, 3);
+
+        userOrders.add(order1);
+
+        return userOrders;
+    }
+
+
+
+
+
 }

@@ -10,6 +10,7 @@ public class MultiDimTheater extends Theater{
 
     protected MultiDimTheater(int theaterNumber, EnumDimensions dim) {
         super(5, 10, 60, theaterNumber);
+        setTheaterType("Multi-dimention theater");
         this.dimension = dim;
     }
 
