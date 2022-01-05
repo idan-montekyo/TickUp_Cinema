@@ -1,7 +1,10 @@
 import java.util.HashMap;
 
+// Crate a class for representing kind of ticket at the cinema
+
 public class Ticket {
 
+    // Fields
 
     private HashMap<String, Integer> ticketsPrices = new HashMap<String, Integer>();
 

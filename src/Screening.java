@@ -1,10 +1,16 @@
+// Create a class for manage screening time for each movie
+
 public class Screening {
+
+    // Fields
 
     private static int ID = 0;
 
     private Theater theater;
     private final String startingTime;
     private final int screeningID;
+
+    // Constructor
 
     // public Screening(int theater_type, int theaterNumber, ScreeningTime st)
     public Screening(EnumTheaterType theater_type, int theaterNumber, String st) {

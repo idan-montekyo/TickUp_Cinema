@@ -1,11 +1,19 @@
+// Crate a class for the Multi dimensions theater
+
 public class MultiDimTheater extends Theater{
 
-    private final EnumDimensions dimension;
+    // Fields
+
+    private final EnumDimensions dimension; // ThreeD, FourD, IMAX
+
+    // Constructor
 
     protected MultiDimTheater(int theaterNumber, EnumDimensions dim) {
         super(5, 10, 60, theaterNumber);
         this.dimension = dim;
     }
+
+    // Getters
 
     public EnumDimensions getDimension() {
         return dimension;

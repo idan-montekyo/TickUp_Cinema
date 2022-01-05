@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Crate a class which represent specific movie
 public class Movie {
 
     // fields
@@ -9,7 +11,6 @@ public class Movie {
     private int serialNumber;
     private int duration;
     private List<Screening> screeningsTime;
-
 
     // Constructor
     public Movie(String movieName, int serialNumber, int duration, ArrayList<Screening> screeningsTime) {
@@ -24,6 +25,7 @@ public class Movie {
         return "Movie Name " + this.movieName + ", Duration " + this.duration
                 + "\nScreenings:\n" + this.screeningsTime;
     }
+
     // Getters
 
     public String getMovieName() {

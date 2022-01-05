@@ -1,3 +1,5 @@
+// Crate Enum for existing kinds of theater at the cinema
+
 public enum EnumTheaterType {
     THEATER_STANDARD,
     THEATER_THREE_D,

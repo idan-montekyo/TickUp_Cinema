@@ -1,9 +1,15 @@
+// Create an abstract class for theater
+
 abstract class Theater {
+
+    //Fields
 
     private final int numRows;
     private final int numCols;
     private final int price;
     protected int theaterNumber;
+
+    // Constructor
 
     protected Theater(int numRows, int numCols, int price, int theaterNumber) {
         this.numRows = numRows;
@@ -11,6 +17,8 @@ abstract class Theater {
         this.price = price;
         this.theaterNumber = theaterNumber;
     }
+
+    // Getters
 
     public int getNumRows() {
         return numRows;
