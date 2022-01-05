@@ -3,15 +3,13 @@
 abstract class Theater {
 
     //Fields
-
     private final int numRows;
     private final int numCols;
     private final int price;
-    protected int theaterNumber;
+    private final int theaterNumber;
     private String theaterType;
 
     // Constructor
-
     protected Theater(int numRows, int numCols, int price, int theaterNumber) {
         this.numRows = numRows;
         this.numCols = numCols;
@@ -20,7 +18,6 @@ abstract class Theater {
     }
 
     // Getters
-
     public int getNumRows() {
         return numRows;
     }
@@ -42,7 +39,6 @@ abstract class Theater {
     }
 
     // Setters
-
     public void setTheaterType(String theaterType) {
         this.theaterType = theaterType;
     }

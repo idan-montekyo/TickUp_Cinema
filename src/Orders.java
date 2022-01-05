@@ -1,23 +1,27 @@
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// Create a class which represent all movies
-public class Movies {
+public class Orders {
 
     // Fields
-    private final List<Movie> allMovies;
+    private final List<UserOrder> allOrders;
 
     // Constructor
-    public Movies(List<Movie> allMovies) {
+    public Orders(List<UserOrder> orders) {
 
-        this.allMovies = allMovies;
+        this.allOrders = orders;
     }
 
-    // Display all data about each movie at the cinema: Name, Duration and screening times
-    public void displayMovies() {
+    // Add a new order to allOrders list
+    public void addOrder(UserOrder order) {
+
+        allOrders.add(order);
+    }
+
+    // Display all data about each order: User, movie, duration, starting time, theater type and number, bill.
+    public void displayOrders() {
         //Traversing list through Iterator
-        Iterator itr = this.allMovies.iterator();//getting the Iterator
+        Iterator itr = this.allOrders.iterator();//getting the Iterator
         while (itr.hasNext()) {//check if iterator has the elements
             System.out.println();
             System.out.println("------------------------------------------------------------------------");
@@ -27,8 +31,9 @@ public class Movies {
     }
 
     // Getter
-    public List<Movie> getAllMovies() {
-        return allMovies;
+    public List<UserOrder> getAllOrders() {
+
+        return allOrders;
     }
 
     @Override

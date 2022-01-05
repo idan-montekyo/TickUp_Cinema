@@ -6,11 +6,10 @@ import java.util.List;
 public class Movie {
 
     // fields
-
-    private String movieName;
-    private int serialNumber;
-    private int duration;
-    private List<Screening> screeningsTime;
+    private final String movieName;
+    private final int serialNumber;
+    private final int duration;
+    private final List<Screening> screeningsTime;
 
     // Constructor
     public Movie(String movieName, int serialNumber, int duration, ArrayList<Screening> screeningsTime) {
@@ -27,7 +26,6 @@ public class Movie {
     }
 
     // Getters
-
     public String getMovieName() {
         return movieName;
     }

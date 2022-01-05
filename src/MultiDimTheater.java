@@ -3,11 +3,9 @@
 public class MultiDimTheater extends Theater{
 
     // Fields
-
     private final EnumDimensions dimension; // ThreeD, FourD, IMAX
 
     // Constructor
-
     protected MultiDimTheater(int theaterNumber, EnumDimensions dim) {
         super(5, 10, 60, theaterNumber);
         setTheaterType("Multi-dimention theater");
@@ -15,7 +13,6 @@ public class MultiDimTheater extends Theater{
     }
 
     // Getters
-
     public EnumDimensions getDimension() {
         return dimension;
     }

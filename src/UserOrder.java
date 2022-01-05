@@ -1,17 +1,17 @@
 public class UserOrder {
 
-    // Fields
     // Constant
-
     final double STUDENT_DISCOUNT = 0.6;
     final double VETERAN_DISCOUNT = 0.4;
 
-    private String userPhoneNumber;
-    private Movie movie;
-    private Screening screening;
-    private Ticket tickets = new Ticket();
-    private double totalBill;
+    // Fields
+    private final String userPhoneNumber;
+    private final Movie movie;
+    private final Screening screening;
+    private final Ticket tickets = new Ticket();
+    private final double totalBill;
 
+    // Constructor
     public UserOrder(String userPhoneNumber, Movie movie, Screening screening, int standard , int student, int veteran){
 
         this.userPhoneNumber = userPhoneNumber;
@@ -46,8 +46,6 @@ public class UserOrder {
     }
 
     // Getters
-
-
     public String getUserPhoneNumber() {
         return userPhoneNumber;
     }

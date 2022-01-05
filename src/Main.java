@@ -3,26 +3,15 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        HashMap<Integer, String> Times = new HashMap<>();
-        Times.put(8, "8:00");
-        Times.put(12, "12:00");
-        Times.put(16, "16:00");
-        Times.put(20, "20:00");
 
         Movies movieList = create_movie_list();
-        List<UserOrder> userOrders = create_user_orders(movieList);
+        Orders orderList = create_user_orders(movieList);
 
-//        movieList.displayMovies();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(userOrders);
-
-//        System.out.println(Movies_List.);
-
-
+        movieList.displayMovies();
+        orderList.displayOrders();
     }
 
+    // Creating and initializing our movie-list.
     public static Movies create_movie_list() {
         HashMap<Integer, String> Times = new HashMap<>();
         Times.put(8, "8:00");
@@ -80,20 +69,34 @@ public class Main {
         return (new Movies(m_list));
     }
 
-    public static List<UserOrder> create_user_orders(Movies movieList) {
-        List<UserOrder> userOrders = new ArrayList<>();
+    // Creating and initializing our order-list.
+    public static Orders create_user_orders(Movies movieList) {
 
-
+        //spiderman
         UserOrder order1 = new UserOrder("050-244-5837", movieList.getAllMovies().get(0),
                 movieList.getAllMovies().get(0).getScreeningsTime().get(3), 1, 2, 3);
+        //hangover
+        UserOrder order2 = new UserOrder("052-735-7255", movieList.getAllMovies().get(1),
+                movieList.getAllMovies().get(0).getScreeningsTime().get(0), 0, 4, 0);
+        //lord of the rings
+        UserOrder order3 = new UserOrder("054-362-1356", movieList.getAllMovies().get(2),
+                movieList.getAllMovies().get(0).getScreeningsTime().get(2), 2, 0, 3);
+        //harry potter
+        UserOrder order4 = new UserOrder("055-290-3682", movieList.getAllMovies().get(3),
+                movieList.getAllMovies().get(0).getScreeningsTime().get(1), 4, 0, 2);
+        //pirates of the caribbean
+        UserOrder order5 = new UserOrder("057-621-4289", movieList.getAllMovies().get(4),
+                movieList.getAllMovies().get(0).getScreeningsTime().get(0), 2, 0, 0);
 
-        userOrders.add(order1);
 
-        return userOrders;
+        List<UserOrder> orders_list = new ArrayList<>();
+        orders_list.add(order1);
+        orders_list.add(order2);
+        orders_list.add(order3);
+        orders_list.add(order4);
+        orders_list.add(order5);
+
+        return (new Orders(orders_list));
     }
-
-
-
-
 
 }

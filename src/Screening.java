@@ -3,7 +3,6 @@
 public class Screening {
 
     // Fields
-
     private static int ID = 0;
 
     private Theater theater;
@@ -11,8 +10,7 @@ public class Screening {
     private final int screeningID;
 
     // Constructor
-
-    public Screening(EnumTheaterType theater_type, int theaterNumber, String st) {
+    public Screening(EnumTheaterType theater_type, int theaterNumber, String startingTime) {
         switch (theater_type) {
             case THEATER_STANDARD -> this.theater = new StandardTheater(theaterNumber);
             case THEATER_THREE_D -> this.theater = new MultiDimTheater(theaterNumber, EnumDimensions.ThreeD);
@@ -21,11 +19,11 @@ public class Screening {
             case THEATER_VIP -> this.theater = new VipTheater(theaterNumber);
         }
 
-        if(!(st == null)) {
-            startingTime = st;
+        if(!(startingTime == null)) {
+            this.startingTime = startingTime;
         }
         else {
-            startingTime = "CANCELLED";
+            this.startingTime = "CANCELLED";
         }
 
         this.screeningID = ID;
@@ -39,12 +37,6 @@ public class Screening {
     }
 
     // Getters
-
-
-    public static int getID() {
-        return ID;
-    }
-
     public Theater getTheater() {
         return theater;
     }
