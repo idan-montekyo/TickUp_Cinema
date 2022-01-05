@@ -38,6 +38,10 @@ public class Orders {
         return allOrders;
     }
 
+    public int GetNumOfORders(){
+        return this.allOrders.size();
+    }
+
     @Override
     public String toString() {
         return super.toString();

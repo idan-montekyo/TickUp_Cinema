@@ -19,7 +19,7 @@ public class MultiDimTheaterTest {
     }
 
     @Test
-    void testAddRemoveItem() {
+    void testSetGetTheaterType() {
         multiDim.setTheaterType("THEATER_IMAX");
         assertEquals("THEATER_IMAX", multiDim.getTheaterType());
 

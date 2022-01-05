@@ -18,7 +18,7 @@ class StandardTheaterTests {
     }
 
     @Test
-    void testAddRemoveItem() {
+    void testSetGetTheaterType() {
         standard.setTheaterType("THEATER_STANDARD");
         assertEquals("THEATER_STANDARD", standard.getTheaterType());
 

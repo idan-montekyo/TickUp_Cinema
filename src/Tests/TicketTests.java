@@ -5,23 +5,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Classes.VipTheater;
+import Classes.Ticket;
 
-public class VipTheaterTests {
-    private VipTheater vip = null;
+
+public class TicketTests {
+    private Ticket ticket = null;
 
     @BeforeEach
     void setUp()
     {
-        vip = new VipTheater(5);
+        ticket = new Ticket();
     }
 
     @Test
     void testSetGetTheaterType() {
-        vip.setTheaterType("THEATER_VIP");
-        assertEquals("THEATER_VIP", vip.getTheaterType());
+        ticket.setNumOfTypeTickets("Student", 3);
+        assertEquals(3, ticket.getNumOfTypeTickets("Student"));
 
     }
-
 
 }
