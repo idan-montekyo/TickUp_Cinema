@@ -33,7 +33,9 @@ public class User {
         }
     }
 
-    public void selectTickets(UserOrder order){
-
+    // User movie selection
+    public Movie selectMovie(Movies movieList, int MovieNumber){
+        return movieList.getAllMovies().get(MovieNumber);
     }
+
 }
