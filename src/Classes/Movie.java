@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie Name " + this.movieName + ", Duration " + this.duration
+        return "Classes.Movie Name " + this.movieName + ", Duration " + this.duration
                 + "\nScreenings:\n" + this.screeningsTime;
     }
 

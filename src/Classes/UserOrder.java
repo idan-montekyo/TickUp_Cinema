@@ -1,3 +1,5 @@
+package Classes;
+
 public class UserOrder {
 
     // Constant
@@ -37,7 +39,7 @@ public class UserOrder {
     @Override
     public String toString() {
         return "Order for user: " + userPhoneNumber +
-                "\nMovie: " + movie.getMovieName() +
+                "\nClasses.Movie: " + movie.getMovieName() +
                 "\nDuration: " + movie.getDuration() +
                 "\nStarts at: " + screening.getStartingTime() +
                 "\n" + screening.getTheater().getTheaterType() + " - " + screening.getTheater().getTheaterNumber() +

@@ -1,4 +1,4 @@
-// Crate Enum for existing kinds of theaters at the cinema.
+package Classes;// Crate Enum for existing kinds of theaters at the cinema.
 
 public enum EnumTheaterType {
     THEATER_STANDARD,

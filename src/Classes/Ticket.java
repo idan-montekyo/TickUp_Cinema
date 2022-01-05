@@ -1,3 +1,5 @@
+package Classes;
+
 import java.util.HashMap;
 
 // Crate a class for representing kind of ticket at the cinema

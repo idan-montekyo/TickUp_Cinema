@@ -1,4 +1,4 @@
-// Create a class for manage screening time for each movie
+package Classes;// Create a class for manage screening time for each movie
 
 public class Screening {
 
@@ -32,8 +32,8 @@ public class Screening {
 
     @Override
     public String toString() {
-        return "Screening id " + this.screeningID + "\nScreening start time " + this.startingTime
-                + "\nTheater info:\n" + this.theater + "\n";
+        return "Classes.Screening id " + this.screeningID + "\nClasses.Screening start time " + this.startingTime
+                + "\nClasses.Theater info:\n" + this.theater + "\n";
     }
 
     // Getters

@@ -1,6 +1,6 @@
-// Create an abstract class for theater
+package Classes;// Create an abstract class for theater
 
-abstract class Theater {
+public abstract class Theater {
 
     //Fields
     private final int numRows;
@@ -10,7 +10,7 @@ abstract class Theater {
     private String theaterType;
 
     // Constructor
-    protected Theater(int numRows, int numCols, int price, int theaterNumber) {
+    public Theater(int numRows, int numCols, int price, int theaterNumber) {
         this.numRows = numRows;
         this.numCols = numCols;
         this.price = price;

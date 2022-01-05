@@ -1,4 +1,4 @@
-// Crate a class for the Multi dimensions theater
+package Classes;// Crate a class for the Multi dimensions theater
 
 public class MultiDimTheater extends Theater{
 
@@ -6,9 +6,9 @@ public class MultiDimTheater extends Theater{
     private final EnumDimensions dimension; // ThreeD, FourD, IMAX
 
     // Constructor
-    protected MultiDimTheater(int theaterNumber, EnumDimensions dim) {
+    public MultiDimTheater(int theaterNumber, EnumDimensions dim) {
         super(5, 10, 60, theaterNumber);
-        setTheaterType("Multi-dimention theater");
+        setTheaterType("Multi-dimension theater");
         this.dimension = dim;
     }
 

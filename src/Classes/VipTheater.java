@@ -1,9 +1,9 @@
-// Crate a class for the VIP theater
+package Classes;// Crate a class for the VIP theater
 
 public class VipTheater extends Theater{
 
     // Constructor
-    protected VipTheater(int theaterNumber) {
+    public VipTheater(int theaterNumber) {
         super(3, 6, 100, theaterNumber);
         setTheaterType("Vip theater");
     }
