@@ -34,6 +34,6 @@ public class OrdersTest {
         Movie movie2 = new Movie("Harry Potter", 3, 150, screeningsList2);
         UserOrder userOrder2 = new UserOrder("050-145-9999", movie2, screening2, 4,0,1);
         order.addOrder(userOrder2);
-        assertEquals(2, order.GetNumOfORders());
+        assertEquals(2, order.GetNumOfOrders());
     }
 }

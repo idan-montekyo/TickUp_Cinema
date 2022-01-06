@@ -39,7 +39,7 @@ public class Orders {
         return allOrders;
     }
 
-    public int GetNumOfORders(){
+    public int GetNumOfOrders(){
         return this.allOrders.size();
     }
 
