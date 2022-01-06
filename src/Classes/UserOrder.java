@@ -43,7 +43,7 @@ public class UserOrder {
     @Override
     public String toString() {
         return "Order for user: " + userPhoneNumber +
-                "\nClasses.Movie: " + movie.getMovieName() +
+                "\nMovie: " + movie.getMovieName() +
                 "\nDuration: " + movie.getDuration() +
                 "\nStarts at: " + screening.getStartingTime() +
                 "\n" + screening.getTheater().getTheaterType() + " - " + screening.getTheater().getTheaterNumber() +

@@ -9,6 +9,10 @@ public class StandardTheater extends Theater {
         setTheaterType("Standard theater");
     }
 
+    public StandardTheater(int numRows, int numCols, int price, int theaterNumber) {
+        super(numRows, numCols, price, theaterNumber);
+    }
+
     @Override
     public String toString() {
         return "Standard theater, " + super.toString();

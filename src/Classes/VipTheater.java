@@ -1,7 +1,7 @@
 package Classes;
 
 // Crate a class for the VIP theater.
-public class VipTheater extends Theater{
+public class VipTheater extends StandardTheater{
 
     // Constructor
     public VipTheater(int theaterNumber) {

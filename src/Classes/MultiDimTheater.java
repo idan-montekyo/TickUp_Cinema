@@ -1,7 +1,7 @@
 package Classes;
 
 // Crate a class for the Multi dimensions theater.
-public class MultiDimTheater extends Theater{
+public class MultiDimTheater extends StandardTheater{
 
     // Fields
     private final EnumDimensions dimension; // ThreeD, FourD, IMAX

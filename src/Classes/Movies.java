@@ -39,9 +39,8 @@ public class Movies {
         return super.toString();
     }
 
-
     // Create All movies at cinema and their screenings
-    public Movies create_movie_list() {
+    public static Movies create_movie_list() {
         HashMap<Integer, String> Times = new HashMap<>();
         Times.put(8, "8:00");
         Times.put(12, "12:00");
