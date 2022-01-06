@@ -7,13 +7,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Movies movieList = create_movie_list();
-        Orders orderList = create_user_orders(movieList);
+       //Movies movieList = create_movie_list();
+        List<Movie> m_list = new ArrayList<>();
+        Movies movieList = new Movies(m_list);
+        movieList = movieList.create_movie_list();
+
+        List<UserOrder> userOrdersList = new ArrayList<>();
+        Orders orderList = new Orders(userOrdersList);
+        orderList = orderList.create_user_orders(movieList);
 
         movieList.displayMovies();
         orderList.displayOrders();
     }
-
+/*
     // Creating and initializing our movie-list.
     public static Movies create_movie_list() {
         HashMap<Integer, String> Times = new HashMap<>();
@@ -71,7 +77,10 @@ public class Main {
 
         return (new Movies(m_list));
     }
+   
+ */
 
+    /*
     // Creating and initializing our order-list.
     public static Orders create_user_orders(Movies movieList) {
 
@@ -108,5 +117,7 @@ public class Main {
 
         return (new Orders(orders_list));
     }
+    */
+
 
 }

@@ -1,6 +1,7 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 // Create a class for a specific movie
@@ -42,5 +43,6 @@ public class Movie {
     public List<Screening> getScreeningsTime() {
         return screeningsTime;
     }
+
 
 }
