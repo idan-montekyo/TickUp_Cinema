@@ -9,6 +9,9 @@ public class Screening {
     private Theater theater;
     private final String startingTime;
     private final int screeningID;
+    private final EnumSeats[][] theaterMatrix;
+    private final int rows;
+    private final int cols;
 
     // Constructor
     public Screening(EnumTheaterType theater_type, int theaterNumber, String startingTime) {
@@ -29,6 +32,15 @@ public class Screening {
 
         this.screeningID = ID;
         ID++;
+
+        this.rows = this.theater.getNumRows();
+        this.cols = this.theater.getNumCols();
+        theaterMatrix = new EnumSeats[this.rows][this.cols];
+        for (int row = 0; row < this.rows; row++) {
+            for (int col = 0; col < this.cols; col++) {
+                this.theaterMatrix[row][col] = EnumSeats.AVAILABLE;
+            }
+        }
     }
 
     @Override
@@ -49,4 +61,22 @@ public class Screening {
     public int getScreeningID() {
         return screeningID;
     }
+
+    public EnumSeats[][] getTheaterMatrix() {
+        return theaterMatrix;
+    }
+
+    // Select a valid seat
+    public boolean selectSeat(int row, int col){
+        if(this.theaterMatrix[row][col].equals(EnumSeats.AVAILABLE) && (row < this.rows && this.rows >= 0) && (col < this.cols && this.cols >= 0)) {
+            this.theaterMatrix[row][col] = EnumSeats.TAKEN;
+            System.out.println("Seats has selected!");
+            return true;
+        }
+        else {
+            System.out.println(("This seat is occupied or illegal!"));
+            return false;
+        }
+    }
 }
+
