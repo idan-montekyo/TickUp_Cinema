@@ -24,12 +24,14 @@ public class ScreeningTests {
     }
 
     @Test
-    void AddInValidSeat() {
+    void AddInValidTakenSeat() {
         screening.selectSeat(0, 0);
         assertEquals(false, screening.selectSeat(0, 0));
 
     }
 
+
+    @Test
     void CancelSeat() {
         screening.selectSeat(0, 0);
         assertEquals(true, screening.CancelSeat(0, 0));

@@ -1,12 +1,11 @@
 package Tests;
+
 import static org.junit.jupiter.api.Assertions.*;
-
-
-import Classes.EnumTheaterType;
-import Classes.Screening;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import Classes.Employee;
+
 public class EmployeeTests {
     private Employee employee = null;
 

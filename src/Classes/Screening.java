@@ -68,7 +68,7 @@ public class Screening {
 
     // Select a valid seat
     public boolean selectSeat(int row, int col){
-        if(this.theaterMatrix[row][col].equals(EnumSeats.AVAILABLE) && (row < this.rows && rows >= 0) && (col < this.cols && cols >= 0)) {
+        if(this.theaterMatrix[row][col].equals(EnumSeats.AVAILABLE) && (row < this.rows && row >= 0) && (col < this.cols && col >= 0)) {
             this.theaterMatrix[row][col] = EnumSeats.TAKEN;
             System.out.println("Seats has selected!");
             return true;
@@ -81,8 +81,11 @@ public class Screening {
 
     // Cancel a seat
     public boolean CancelSeat(int row, int col){
-        if(this.theaterMatrix[row][col].equals(EnumSeats.AVAILABLE) && (row < this.rows && rows >= 0) && (col < this.cols && cols >= 0)) {
-            this.theaterMatrix[row][col] = EnumSeats.TAKEN;
+        if(row > this.rows || rows <= 0 || col > this.cols && col <= 0){
+            System.out.println(("Error!"));
+            return false;
+        }
+        else if(this.theaterMatrix[row][col].equals(EnumSeats.TAKEN)) {
             this.theaterMatrix[row][col] = EnumSeats.AVAILABLE;
             System.out.println("Seat has canceled!");
             return true;
