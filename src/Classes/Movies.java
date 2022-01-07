@@ -39,7 +39,7 @@ public class Movies {
         return super.toString();
     }
 
-    // Create All movies at cinema and their screenings
+    // Create All movies at cinema and their screenings - default (first version)
     public static Movies create_movie_list() {
         HashMap<Integer, String> Times = new HashMap<>();
         Times.put(8, "8:00");
