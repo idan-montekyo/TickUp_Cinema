@@ -2,8 +2,7 @@ package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import Classes.EnumDimensions;
-import Classes.MultiDimTheater;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import Classes.Screening;
