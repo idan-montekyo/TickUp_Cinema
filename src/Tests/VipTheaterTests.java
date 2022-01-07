@@ -1,7 +1,6 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,12 +15,10 @@ public class VipTheaterTests {
         vip = new VipTheater(5);
     }
 
+    // Test for set the right theater type
     @Test
     void testSetGetTheaterType() {
         vip.setTheaterType("THEATER_VIP");
         assertEquals("THEATER_VIP", vip.getTheaterType());
-
     }
-
-
 }

@@ -1,8 +1,6 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import Classes.StandardTheater;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,10 +15,10 @@ class StandardTheaterTests {
         standard = new StandardTheater(1);
     }
 
+    // Test for set the right theater type
     @Test
     void testSetGetTheaterType() {
         standard.setTheaterType("THEATER_STANDARD");
         assertEquals("THEATER_STANDARD", standard.getTheaterType());
-
     }
 }

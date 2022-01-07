@@ -13,8 +13,13 @@ public class Movies {
 
     // Constructor
     public Movies(List<Movie> allMovies) {
-
         this.allMovies = allMovies;
+    }
+
+
+    // Getter
+    public List<Movie> getAllMovies() {
+        return allMovies;
     }
 
     // Display all data about each movie at the cinema: Name, Duration and screening times
@@ -27,16 +32,6 @@ public class Movies {
             System.out.println();
             System.out.println(itr.next());//printing the element and move to next
         }
-    }
-
-    // Getter
-    public List<Movie> getAllMovies() {
-        return allMovies;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     // Create All movies at cinema and their screenings - default (first version)
@@ -95,6 +90,11 @@ public class Movies {
         m_list.add(m_PiratesOfTheCaribbean);
 
         return (new Movies(m_list));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 }

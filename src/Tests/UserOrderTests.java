@@ -1,7 +1,6 @@
 package Tests;
-import static org.junit.jupiter.api.Assertions.*;
 
-import Classes.UserOrder;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,8 +24,9 @@ public class UserOrderTests {
         userOrder = new UserOrder("050-123-4567", movie, screening, 1,2,3);
     }
 
+    // Test for calculate the right bill
     @Test
-    void testSetGetTheaterType() {
+    void testBill() {
         userOrder.getBill();
         assertEquals(136, userOrder.getBill());
     }

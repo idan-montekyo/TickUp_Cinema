@@ -5,7 +5,6 @@ public class Screening {
 
     // Fields
     private static int ID = 0;
-
     private Theater theater;
     private final String startingTime;
     private final int screeningID;
@@ -33,6 +32,7 @@ public class Screening {
         this.screeningID = ID;
         ID++;
 
+        // Initialize theater seats
         this.rows = this.theater.getNumRows();
         this.cols = this.theater.getNumCols();
         theaterMatrix = new EnumSeats[this.rows][this.cols];
@@ -43,11 +43,6 @@ public class Screening {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Screening id " + this.screeningID + "\nScreening start time " + this.startingTime
-                + "\nTheater info:\n" + this.theater + "\n";
-    }
 
     // Getters
     public Theater getTheater() {
@@ -66,9 +61,10 @@ public class Screening {
         return theaterMatrix;
     }
 
+
     // Select a valid seat
     public boolean selectSeat(int row, int col){
-        if(this.theaterMatrix[row][col].equals(EnumSeats.AVAILABLE) && (row < this.rows && row >= 0) && (col < this.cols && col >= 0)) {
+        if(this.theaterMatrix[row][col].equals(EnumSeats.AVAILABLE) && row < this.rows && row >= 0 && col < this.cols && col >= 0) {
             this.theaterMatrix[row][col] = EnumSeats.TAKEN;
             System.out.println("Seats has selected!");
             return true;
@@ -94,6 +90,12 @@ public class Screening {
             System.out.println(("Error!"));
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Screening id " + this.screeningID + "\nScreening start time " + this.startingTime
+                + "\nTheater info:\n" + this.theater + "\n";
     }
 }
 

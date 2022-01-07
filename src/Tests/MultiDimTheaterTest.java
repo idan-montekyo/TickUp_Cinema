@@ -1,7 +1,6 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +17,7 @@ public class MultiDimTheaterTest {
         multiDim = new MultiDimTheater(7, EnumDimensions.IMAX);
     }
 
+    // Test for set the right theater type
     @Test
     void testSetGetTheaterType() {
         multiDim.setTheaterType("THEATER_IMAX");

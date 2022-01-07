@@ -1,8 +1,5 @@
 package Classes;
 
-import java.util.ArrayList;
-import java.util.List;
-
 // Crate a class for a single order.
 public class UserOrder {
 
@@ -29,27 +26,6 @@ public class UserOrder {
         this.totalBill = getBill();
     }
 
-    // Calculate total price for specific order
-    public int getBill() {
-        int bill = 0;
-        int originalPrice = this.screening.getTheater().getPrice();
-        bill += this.tickets.getNumOfTypeTickets("Standard") * originalPrice;
-        bill += this.tickets.getNumOfTypeTickets("Student") * originalPrice * STUDENT_DISCOUNT;
-        bill += this.tickets.getNumOfTypeTickets("Veteran") * originalPrice * VETERAN_DISCOUNT;
-
-        return bill;
-    }
-
-    @Override
-    public String toString() {
-        return "Order for user: " + userPhoneNumber +
-                "\nMovie: " + movie.getMovieName() +
-                "\nDuration: " + movie.getDuration() +
-                "\nStarts at: " + screening.getStartingTime() +
-                "\n" + screening.getTheater().getTheaterType() + " - " + screening.getTheater().getTheaterNumber() +
-                "\n" + tickets +
-                "\nTotal bill: " + totalBill;
-    }
 
     // Getters
     public String getUserPhoneNumber() {
@@ -72,5 +48,27 @@ public class UserOrder {
         return totalBill;
     }
 
+
+    // Calculate total price for specific order
+    public int getBill() {
+        int bill = 0;
+        int originalPrice = this.screening.getTheater().getPrice();
+        bill += this.tickets.getNumOfTypeTickets("Standard") * originalPrice;
+        bill += this.tickets.getNumOfTypeTickets("Student") * originalPrice * STUDENT_DISCOUNT;
+        bill += this.tickets.getNumOfTypeTickets("Veteran") * originalPrice * VETERAN_DISCOUNT;
+
+        return bill;
+    }
+
+    @Override
+    public String toString() {
+        return "Order for user: " + userPhoneNumber +
+                "\nMovie: " + movie.getMovieName() +
+                "\nDuration: " + movie.getDuration() +
+                "\nStarts at: " + screening.getStartingTime() +
+                "\n" + screening.getTheater().getTheaterType() + " - " + screening.getTheater().getTheaterNumber() +
+                "\n" + tickets +
+                "\nTotal bill: " + totalBill;
+    }
 
 }

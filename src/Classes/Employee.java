@@ -1,9 +1,6 @@
 package Classes;
 
-import java.util.List;
-
 public class Employee extends User{
-
 
     // Fields
     private int personalNumber;
@@ -31,7 +28,8 @@ public class Employee extends User{
         userOrders.displayOrders();
     }
 
-    // updateMovie - At this stage we decided to create a default list of movies...
 
+
+    // updateMovie - At this stage we decided to create a default list of movies...
 
 }

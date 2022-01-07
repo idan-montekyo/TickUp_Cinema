@@ -18,7 +18,6 @@ public class Ticket {
 
     // Get quantity of specific ticket type at specific order
     public int getNumOfTypeTickets(String type) {
-
         return this.ticketsQuantity.get(type);
     }
 
@@ -28,17 +27,18 @@ public class Ticket {
         this.ticketsQuantity.put(type, numOfTickets);
     }
 
-    @Override
-    public String toString() {
-        return "Amount of Standard-tickets: " + this.ticketsQuantity.get("Standard") +
-                "\nAmount of Student-tickets: " + this.ticketsQuantity.get("Student") +
-                "\nAmount of Veteran-tickets: " + this.ticketsQuantity.get("Veteran");
-    }
 
     // Display all quantity of all types of ticket at specific order
     public void displayAllNumOfTypeTickets() {
         for (String i : this.ticketsQuantity.keySet()) {
             System.out.println("key: " + i + " value: " + this.ticketsQuantity.get(i));
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Amount of Standard-tickets: " + this.ticketsQuantity.get("Standard") +
+                "\nAmount of Student-tickets: " + this.ticketsQuantity.get("Student") +
+                "\nAmount of Veteran-tickets: " + this.ticketsQuantity.get("Veteran");
     }
 }

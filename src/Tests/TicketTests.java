@@ -1,7 +1,6 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,11 +16,10 @@ public class TicketTests {
         ticket = new Ticket();
     }
 
+    // Test for selecting amount of tickets
     @Test
-    void testSetGetTheaterType() {
+    void testAmountOfTickets() {
         ticket.setNumOfTypeTickets("Student", 3);
         assertEquals(3, ticket.getNumOfTypeTickets("Student"));
-
     }
-
 }

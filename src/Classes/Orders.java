@@ -12,13 +12,21 @@ public class Orders {
 
     // Constructor
     public Orders(List<UserOrder> orders) {
-
         this.allOrders = orders;
     }
 
+    // Getters
+    public List<UserOrder> getAllOrders() {
+        return allOrders;
+    }
+
+    public int GetNumOfOrders(){
+        return this.allOrders.size();
+    }
+
+
     // Add a new order to allOrders list
     public void addOrder(UserOrder order) {
-
         allOrders.add(order);
     }
 
@@ -32,21 +40,6 @@ public class Orders {
             System.out.println();
             System.out.println(itr.next());//printing the element and move to next
         }
-    }
-
-    // Getter
-    public List<UserOrder> getAllOrders() {
-
-        return allOrders;
-    }
-
-    public int GetNumOfOrders(){
-        return this.allOrders.size();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     // Creating and initializing our order-list.
@@ -84,6 +77,11 @@ public class Orders {
         orders_list.add(order5);
 
         return (new Orders(orders_list));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 }

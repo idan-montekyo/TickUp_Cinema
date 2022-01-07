@@ -39,7 +39,7 @@ public abstract class Theater {
         return theaterType;
     }
 
-    // Setters
+    // Setter
     public void setTheaterType(String theaterType) {
         this.theaterType = theaterType;
     }

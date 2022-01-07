@@ -1,6 +1,6 @@
 package Classes;
 
-// Crate a class for the Multi dimensions theater.
+// Crate a class for the Multi dimension's theater.
 public class MultiDimTheater extends StandardTheater{
 
     // Fields

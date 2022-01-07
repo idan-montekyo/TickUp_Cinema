@@ -1,7 +1,6 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 // Create a class for a specific movie
@@ -21,11 +20,6 @@ public class Movie {
         this.screeningsTime = screeningsTime;
     }
 
-    @Override
-    public String toString() {
-        return "Movie Name " + this.movieName + ", Duration " + this.duration
-                + "\nScreenings:\n" + this.screeningsTime;
-    }
 
     // Getters
     public String getMovieName() {
@@ -44,5 +38,9 @@ public class Movie {
         return screeningsTime;
     }
 
-
+    @Override
+    public String toString() {
+        return "Movie Name " + this.movieName + ", Duration " + this.duration
+                + "\nScreenings:\n" + this.screeningsTime;
+    }
 }

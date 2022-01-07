@@ -1,11 +1,10 @@
 package Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import Classes.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import Classes.*;
 
 public class UserTests {
     private User user = null;
@@ -17,16 +16,20 @@ public class UserTests {
         user = new User();
     }
 
+    // Test for select exist movie
     @Test
     void SelectMovie() {
         assertEquals( movieList.getAllMovies().get(1), user.selectMovieByName(movieList, "Hangover"));
     }
 
+    // Test for select invalid amount of tickets
     @Test
-    void SelectUnValidSumOfTickets() {
+    void SelectInValidSumOfTickets() {
         assertEquals( null, user.selectTicketsUpToEight(4, 4, 4));
     }
 
+
+    // Test for select valid seats
     @Test
     void SelectValidSeats() {
         Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, "8:00");
@@ -34,6 +37,7 @@ public class UserTests {
         assertEquals( true, user.selectUserSeats(screening, userSelection));
     }
 
+    // Test for select unvalid seats
     @Test
     void SelectInValidSeats() {
         Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, "8:00");
@@ -41,6 +45,4 @@ public class UserTests {
         screening.selectSeat(1, 2);
         assertEquals( false, user.selectUserSeats(screening, userSelection));
     }
-
-
 }

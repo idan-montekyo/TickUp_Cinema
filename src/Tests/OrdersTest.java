@@ -1,16 +1,15 @@
 package Tests;
-import Classes.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
-import Classes.UserOrder;
+import Classes.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrdersTest {
     private Orders order = null;
@@ -27,8 +26,9 @@ public class OrdersTest {
         order = new Orders(orders_list);
     }
 
+    // Test for creating new orders
     @Test
-    void testSetGetTheaterType() {
+    void createNewOrder() {
         Screening screening2 = new Screening(EnumTheaterType.THEATER_VIP, 5, "16:00");
         ArrayList<Screening> screeningsList2 = new ArrayList<> (Arrays.asList(screening2));
         Movie movie2 = new Movie("Harry Potter", 3, 150, screeningsList2);

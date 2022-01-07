@@ -1,3 +1,5 @@
 package Classes;
 
-public enum EnumSeats {AVAILABLE,TAKEN}
+public enum EnumSeats {
+    AVAILABLE,
+    TAKEN}

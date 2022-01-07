@@ -1,22 +1,16 @@
 package Classes;
 
-
-import java.util.HashMap;
 import java.util.List;
 
 public class User {
 
-
     // Constructor
-    public User() {
-
-    }
+    public User() {}
 
     // Display all movies
     public void displayMoviesForSelection(Movies movies) {
         movies.displayMovies();
     }
-
 
     // User movie selection
     public Movie selectMovieByName(Movies movieList, String movieName) {
@@ -36,12 +30,12 @@ public class User {
         }
     }
 
-
+    // return an array of all screening times for a specific movie
     public List<Screening> selectScreening(Movie m) {
         return m.getScreeningsTime();
-
     }
 
+    // Select amount of tickets of: Standard, Student and Veteran - Up to 8 tickets
     public Ticket selectTicketsUpToEight(int standard, int student, int veteran) {
         int sum = standard + student + veteran;
         if(sum > 8) {
@@ -56,6 +50,7 @@ public class User {
         }
     }
 
+    // Select seats for a specific screening (The matrix represent: first col - number of row, second col - number of col; each seat is representing by a row in the matrix
     public boolean selectUserSeats(Screening screening, int[][] userSelection) {
 
         for(int row = 0; row < userSelection.length; row++){
@@ -68,7 +63,6 @@ public class User {
             screening.selectSeat(userSelection[row][0], userSelection[row][1]);
         }
         return true;
-
     }
 
     // public placeOrder()
