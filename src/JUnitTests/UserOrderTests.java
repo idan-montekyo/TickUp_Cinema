@@ -14,15 +14,15 @@ import java.util.Arrays;
 
 public class UserOrderTests {
     private UserOrder userOrder = null;
-    Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, "12:00");
-    ArrayList<Screening> screeningsList = new ArrayList<> (Arrays.asList(screening));
-    Movie movie = new Movie("Spiderman", 0, 100, screeningsList);
+//    Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, "12:00");
+//    ArrayList<Screening> screeningsList = new ArrayList<> (Arrays.asList(screening));
+//    Movie movie = new Movie("Spiderman", 0, 100, screeningsList);
 
     @BeforeEach
-    void setUp()
-    {
-        userOrder = new UserOrder("050-123-4567", movie, screening, 1,2,3);
-    }
+//    void setUp()
+//    {
+//        userOrder = new UserOrder("050-123-4567", movie, screening, 1,2,3);
+//    }
 
     // Test for calculate the right bill
     @Test
