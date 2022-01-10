@@ -12,19 +12,19 @@ public class EmployeeTests {
 
     @BeforeEach
     void setUp() {
-        employee = new Employee(1234, 7453);
+        employee = new Employee(1234);
     }
 
     // Test for success login
     @Test
     void validLogin() {
-        assertEquals(true, employee.login(1234, 7453));
+        assertEquals(true, employee.login(1234));
     }
 
     // Test for unsuccessful login
     @Test
     void InValidLogin() {
-        assertEquals(false, employee.login(1234, 7454));
-        assertEquals(false, employee.login(1254, 7454));
+        assertEquals(false, employee.login(1234));
+        assertEquals(false, employee.login(1254));
     }
 }

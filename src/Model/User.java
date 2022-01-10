@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Enums.EnumSeats;
+
 import java.util.List;
 
 public class User {
@@ -36,12 +38,12 @@ public class User {
     }
 
     // Select amount of tickets of: Standard, Student and Veteran - Up to 8 tickets
-    public Ticket selectTicketsUpToEight(int standard, int student, int veteran) {
+    public Tickets selectTicketsUpToEight(int standard, int student, int veteran) {
         int sum = standard + student + veteran;
         if(sum > 8) {
             return null;
         } else {
-            Ticket ticket = new Ticket();
+            Tickets ticket = new Tickets();
             ticket.setNumOfTypeTickets("Standard", standard);
             ticket.setNumOfTypeTickets("Student", student);
             ticket.setNumOfTypeTickets("Veteran", veteran);
@@ -54,13 +56,13 @@ public class User {
     public boolean selectUserSeats(Screening screening, int[][] userSelection) {
 
         for(int row = 0; row < userSelection.length; row++){
-            if(screening.getTheaterMatrix()[userSelection[row][0]][userSelection[row][1]].equals(EnumSeats.TAKEN)){
+            if(screening.getTheater().getSeats()[userSelection[row][0]][userSelection[row][1]].equals(EnumSeats.TAKEN)){
                 return false;
             }
         }
 
         for(int row = 0; row < userSelection.length; row++){
-            screening.selectSeat(userSelection[row][0], userSelection[row][1]);
+            screening.getTheater().selectSeat(userSelection[row][0], userSelection[row][1]);
         }
         return true;
     }

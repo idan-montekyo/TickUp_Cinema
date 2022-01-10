@@ -1,17 +1,20 @@
 package Model;
 
+import Model.Enums.EnumSeats;
+
 // Create an abstract class for theater.
 public abstract class Theater {
 
     //Fields
     private final int numRows;
     private final int numCols;
+    private final EnumSeats[][] seats;
     private final int price;
     private final int theaterNumber;
-    private String theaterType;
 
     // Constructor
     public Theater(int numRows, int numCols, int price, int theaterNumber) {
+        this.seats = new EnumSeats[numRows][numCols];
         this.numRows = numRows;
         this.numCols = numCols;
         this.price = price;
@@ -35,17 +38,27 @@ public abstract class Theater {
         return theaterNumber;
     }
 
-    public String getTheaterType() {
-        return theaterType;
+    public EnumSeats[][] getSeats() {
+        return seats;
     }
 
-    // Setter
-    public void setTheaterType(String theaterType) {
-        this.theaterType = theaterType;
+    // Setters
+    public void setSeat(int row, int col, EnumSeats seatStatus) {
+        seats[row][col] = seatStatus;
     }
 
-    @Override
-    public String toString() {
-        return "theater " + this.theaterNumber + ", " + this.numRows + " rows, " + this.numCols + " cols, " + this.price + " NIS.";
+    public void selectSeat(int row, int col){
+        seats[row][col] = EnumSeats.SELECTED;
     }
+
+//    @Override
+//    public String toString() {
+////        StringBuilder theaterInfo = new StringBuilder();
+//
+////        theaterInfo.append("number ").append(this.theaterNumber).append(", ")
+////                .append(this.numRows).append(" rows, ").append(this.numCols)
+////                .append(" cols, ").append(this.price).append(" NIS.");
+//
+//        return theaterInfo.toString();
+//    }
 }

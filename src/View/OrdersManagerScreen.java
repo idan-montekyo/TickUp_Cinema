@@ -8,7 +8,7 @@ import java.awt.*;
 public class OrdersManagerScreen extends MoviesFrame {
     private JTextArea textArea = new JTextArea("", 6, 20);
 
-    OrdersManagerScreen(){
+    public OrdersManagerScreen(){
         JLabel title = new JLabel("Orders", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 40));
         title.setBounds(0, 0, 999, 60);

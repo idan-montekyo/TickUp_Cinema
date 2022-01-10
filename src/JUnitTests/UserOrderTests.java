@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import Model.UserOrder;
 import Model.Screening;
 import Model.Movie;
-import Model.EnumTheaterType;
+import Model.Enums.EnumTheaterType;
 
 import java.util.ArrayList;
 import java.util.Arrays;

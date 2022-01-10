@@ -9,7 +9,7 @@ public abstract class MoviesFrame extends JFrame {
     protected static final Color textColor = new Color(229, 229, 229);
 
     private static final String appName = "TickUP";
-    private static final String appIconPath = "ticket.png";
+    private static final String appIconPath = "src\\View\\images\\ticket.png";
 
     private static final int appWidth = 999;
     private static final int appHeight = 563;

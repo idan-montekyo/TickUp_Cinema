@@ -1,4 +1,4 @@
-package Model;
+package Model.Enums;
 
 // Crate Enum for existing kinds of theaters at the cinema.
 public enum EnumTheaterType {

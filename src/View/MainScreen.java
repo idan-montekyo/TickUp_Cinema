@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Controller.*;
 
 public class MainScreen extends MoviesFrame {
-    private static final String mainScreenBackgroundPath = "/View/images/cinema.png";
+    private static final String mainScreenBackgroundPath = "src\\View\\images\\cinema.png";
     private JButton showMoviesButton = new JButton("MOVIES");
     private JButton showOrdersButton = new JButton("ORDERS");
     private JButton login = new JButton("LOGIN");
@@ -41,47 +42,24 @@ public class MainScreen extends MoviesFrame {
         this.getContentPane().add(label);
 
         showMoviesButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                switchToMoviesWindow();
+            public void actionPerformed(ActionEvent event) {
+                Manager.switchToMoviesWindow();
             }
         });
 
         showOrdersButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                switchToOrdersWindow();
+            public void actionPerformed(ActionEvent event) {
+                Manager.switchToOrdersWindow();
             }
         });
 
         login.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                boolean flag = loginUser();
+            public void actionPerformed(ActionEvent event) {
+                boolean flag = Manager.loginUser();
+
                 if(flag)
                     showOrdersButton.setEnabled(true);
             }
         });
-    }
-
-    private void switchToMoviesWindow(){
-        MoviesScreen moviesScreen = new MoviesScreen();
-
-        moviesScreen.setVisible(true);
-        this.setVisible(false);
-    }
-
-    private void switchToOrdersWindow(){
-        OrdersManagerScreen ordersManagerScreen = new OrdersManagerScreen();
-
-        ordersManagerScreen.setVisible(true);
-        this.setVisible(false);
-    }
-
-    private boolean loginUser(){
-        String message = "Please enter your employee id number:";
-        String userId = JOptionPane.showInputDialog(this, message, null);
-
-        if(userId.equals("1234"))
-            return true;
-
-        return false;
     }
 }

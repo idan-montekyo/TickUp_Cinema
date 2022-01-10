@@ -11,7 +11,7 @@ public class UserOrder {
     private final String userPhoneNumber;
     private final Movie movie;
     private final Screening screening;
-    private final Ticket tickets = new Ticket();
+    private final Tickets tickets = new Tickets();
     private final double totalBill;
 
     // Constructor
@@ -40,7 +40,7 @@ public class UserOrder {
         return screening;
     }
 
-    public Ticket getTickets() {
+    public Tickets getTickets() {
         return tickets;
     }
 
@@ -65,8 +65,8 @@ public class UserOrder {
         return "Order for user: " + userPhoneNumber +
                 "\nMovie: " + movie.getMovieName() +
                 "\nDuration: " + movie.getDuration() +
-                "\nStarts at: " + screening.getStartingTime() +
-                "\n" + screening.getTheater().getTheaterType() + " - " + screening.getTheater().getTheaterNumber() +
+                "\nStarts at: " + screening.getScreeningTime() +
+                "\n" + screening.getTheater().toString() + " - " + screening.getTheater().getTheaterNumber() +
                 "\n" + tickets +
                 "\nTotal bill: " + totalBill;
     }

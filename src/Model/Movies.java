@@ -1,13 +1,15 @@
 package Model;
 
+import Model.Enums.EnumScreeningTime;
+import Model.Enums.EnumTheaterType;
+import Model.Enums.EnumWeekDays;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 // Create a class that holds all the movies.
 public class Movies {
-
     // Fields
     private final List<Movie> allMovies;
 
@@ -35,51 +37,75 @@ public class Movies {
     }
 
     // Create All movies at cinema and their screenings - default (first version)
-    public static Movies create_movie_list() {
-        HashMap<Integer, String> Times = new HashMap<>();
-        Times.put(8, "8:00");
-        Times.put(12, "12:00");
-        Times.put(16, "16:00");
-        Times.put(20, "20:00");
+    public static Movies createMoviesList() {
+        ScreeningTime st1 = new ScreeningTime(EnumWeekDays.FRIDAY, EnumScreeningTime.EIGHT);
+        ScreeningTime st2 = new ScreeningTime(EnumWeekDays.FRIDAY, EnumScreeningTime.TWELVE);
+        ScreeningTime st3 = new ScreeningTime(EnumWeekDays.FRIDAY, EnumScreeningTime.TEN);
+        ScreeningTime st4 = new ScreeningTime(EnumWeekDays.THURSDAY, EnumScreeningTime.TEN);
+        ScreeningTime st5 = new ScreeningTime(EnumWeekDays.THURSDAY, EnumScreeningTime.FOUR);
+        ScreeningTime st6 = new ScreeningTime(EnumWeekDays.THURSDAY, EnumScreeningTime.EIGHT);
+        ScreeningTime st7 = new ScreeningTime(EnumWeekDays.SATURDAY, EnumScreeningTime.TWELVE);
+        ScreeningTime st8 = new ScreeningTime(EnumWeekDays.SATURDAY, EnumScreeningTime.FOUR);
 
-        Screening spiderman1 = new Screening(EnumTheaterType.THEATER_STANDARD, 1, Times.get(8));
-        Screening spiderman2 = new Screening(EnumTheaterType.THEATER_THREE_D, 7, Times.get(8));
-        Screening spiderman3 = new Screening(EnumTheaterType.THEATER_IMAX, 7, Times.get(20));
-        Screening spiderman4 = new Screening(EnumTheaterType.THEATER_VIP, 5, Times.get(20));
+
+        Screening spiderman1 = new Screening(EnumTheaterType.THEATER_STANDARD, 1, st1);
+        Screening spiderman2 = new Screening(EnumTheaterType.THEATER_THREE_D, 7, st6);
+        Screening spiderman3 = new Screening(EnumTheaterType.THEATER_IMAX, 7, st3);
+        Screening spiderman4 = new Screening(EnumTheaterType.THEATER_VIP, 5, st8);
         ArrayList<Screening> screenings_spiderman = new ArrayList<>();
         screenings_spiderman.add(spiderman1);
         screenings_spiderman.add(spiderman2);
         screenings_spiderman.add(spiderman3);
         screenings_spiderman.add(spiderman4);
-        Movie m_Spiderman = new Movie("Spiderman", 0, 100, screenings_spiderman);
+        Movie m_Spiderman = new Movie("Spiderman", 0,
+                "\\src\\View\\images\\movie1.png",
+                "scafjnkcbbea",
+                100,
+                screenings_spiderman);
 
-        Screening hangover1 = new Screening(EnumTheaterType.THEATER_VIP, 6, Times.get(16));
+        Screening hangover1 = new Screening(EnumTheaterType.THEATER_VIP, 6, st2);
         ArrayList<Screening> screenings_hangover = new ArrayList<>();
         screenings_hangover.add(hangover1);
-        Movie m_Hangover = new Movie("Hangover", 1, 100, screenings_hangover);
+        Movie m_Hangover = new Movie("Hangover", 1,
+                "\\src\\View\\images\\movie1.png",
+                "scafjnkcbbea",
+                88,
+                screenings_spiderman);
 
-        Screening lordoftherings1 = new Screening(EnumTheaterType.THEATER_STANDARD, 3, Times.get(12));
-        Screening lordoftherings2 = new Screening(EnumTheaterType.THEATER_STANDARD, 1, Times.get(16));
-        Screening lordoftherings3 = new Screening(EnumTheaterType.THEATER_STANDARD, 2, Times.get(20));
+        Screening lordoftherings1 = new Screening(EnumTheaterType.THEATER_STANDARD, 3, st7);
+        Screening lordoftherings2 = new Screening(EnumTheaterType.THEATER_STANDARD, 1, st4);
+        Screening lordoftherings3 = new Screening(EnumTheaterType.THEATER_STANDARD, 2, st1);
         ArrayList<Screening> screenings_lordoftherings = new ArrayList<>();
         screenings_lordoftherings.add(lordoftherings1);
         screenings_lordoftherings.add(lordoftherings2);
         screenings_lordoftherings.add(lordoftherings3);
-        Movie m_LordOfTheRings = new Movie("Lord of the rings", 2, 120, screenings_lordoftherings);
+        Movie m_LordOfTheRings = new Movie("Lord of the rings", 2,
+                "\\src\\View\\images\\movie1.png",
+                "scafjnkcbbea",
+                96,
+                screenings_spiderman);
 
-        Screening harrypotter1 = new Screening(EnumTheaterType.THEATER_STANDARD, 2, Times.get(12));
-        Screening harrypotter2 = new Screening(EnumTheaterType.THEATER_STANDARD, 1, Times.get(20));
+        Screening harrypotter1 = new Screening(EnumTheaterType.THEATER_STANDARD, 2, st5);
+        Screening harrypotter2 = new Screening(EnumTheaterType.THEATER_STANDARD, 1, st6);
         ArrayList<Screening> screenings_harrypotter = new ArrayList<>();
         screenings_harrypotter.add(harrypotter1);
         screenings_harrypotter.add(harrypotter2);
-        Movie m_HarryPotter = new Movie("Harry Potter", 3, 150, screenings_harrypotter);
+        Movie m_HarryPotter = new Movie("Harry Potter", 3,
+                "\\src\\View\\images\\movie1.png",
+                "scafjnkcbbea",
+                110,
+                screenings_spiderman);
 
-        Screening piratesofthecaribbean1 = new Screening(EnumTheaterType.THEATER_VIP, 5, Times.get(16));
-        Screening piratesofthecaribbean2 = new Screening(EnumTheaterType.THEATER_STANDARD, 3, Times.get(20));
+        Screening piratesofthecaribbean1 = new Screening(EnumTheaterType.THEATER_VIP, 5, st8);
+        Screening piratesofthecaribbean2 = new Screening(EnumTheaterType.THEATER_STANDARD, 3, st4);
         ArrayList<Screening> screenings_piratesofthecaribbean = new ArrayList<>();
         screenings_piratesofthecaribbean.add(piratesofthecaribbean1);
         screenings_piratesofthecaribbean.add(piratesofthecaribbean2);
-        Movie m_PiratesOfTheCaribbean = new Movie("Pirates of the Caribbean", 4, 120, screenings_piratesofthecaribbean);
+        Movie m_PiratesOfTheCaribbean = new Movie("Pirates of the Caribbean", 4,
+                "\\src\\View\\images\\movie1.png",
+                "scafjnkcbbea",
+                120,
+                screenings_spiderman);
 
 
         List<Movie> m_list = new ArrayList<>();

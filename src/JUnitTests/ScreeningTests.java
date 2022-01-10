@@ -1,11 +1,10 @@
 package JUnitTests;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Model.Screening;
-import Model.EnumTheaterType;
+import Model.Enums.EnumTheaterType;
 
 public class ScreeningTests {
     private Screening screening = null;

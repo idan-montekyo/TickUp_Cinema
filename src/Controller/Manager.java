@@ -2,14 +2,38 @@ package Controller;
 import Model.*;
 import View.*;
 
-public class Manager {
+import javax.swing.*;
 
-    public static void main(String[] args) {
-        runProgram();
+public class Manager {
+    private static MainScreen mainScreen = new MainScreen();
+    private static MoviesFrame currentScreen;
+    private static Employees employees = new Employees();
+
+    public void ShowMainScreen(){
+        mainScreen.setVisible(true);
     }
 
-    private static void runProgram(){
-        MainScreen mainScreen = new MainScreen();
-        mainScreen.setVisible(true);
+    public static void switchToMoviesWindow(){
+        currentScreen = new MoviesScreen();
+
+        currentScreen.setVisible(true);
+        mainScreen.setVisible(false);
+    }
+
+    public static void switchToOrdersWindow(){
+        currentScreen = new OrdersManagerScreen();
+
+        currentScreen.setVisible(true);
+        mainScreen.setVisible(false);
+    }
+
+    public static boolean loginUser(){
+        String message = "Please enter your employee id number:";
+        String userId = JOptionPane.showInputDialog(mainScreen, message, null);
+
+        if(employees.login(Integer.parseInt(userId)))
+            return true;
+
+        return false;
     }
 }

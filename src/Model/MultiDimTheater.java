@@ -1,15 +1,20 @@
 package Model;
 
+import Model.Enums.EnumDimensions;
+
 // Crate a class for the Multi dimension's theater.
-public class MultiDimTheater extends StandardTheater{
+public class MultiDimTheater extends StandardTheater {
+    // Defines
+    private static final int numRows = 5;
+    private static final int numCols = 6;
+    private static final int price = 50;
 
     // Fields
-    private final EnumDimensions dimension; // ThreeD, FourD, IMAX
+    private final EnumDimensions dimension; // 3D, 4D, IMAX
 
     // Constructor
     public MultiDimTheater(int theaterNumber, EnumDimensions dim) {
-        super(5, 10, 60, theaterNumber);
-        setTheaterType("Multi-dimension theater");
+        super(numRows, numCols, price, theaterNumber);
         this.dimension = dim;
     }
 
@@ -18,8 +23,18 @@ public class MultiDimTheater extends StandardTheater{
         return dimension;
     }
 
+
     @Override
     public String toString() {
-        return "Dimensions = " + this.dimension + ", " + super.toString();
+        String dim = "";
+
+        switch (dimension){
+            case IMAX -> dim = "IMAX";
+            case ThreeD -> dim = "3D";
+            case FourD -> dim = "4D";
+        }
+
+//        return dim + " " + super.toString();
+        return dim + " ";
     }
 }

@@ -53,7 +53,7 @@ public class MovieInfo extends MoviesFrame {
         imagePanel.setBackground(backgroundColor);
         imagePanel.setLayout(new BorderLayout());
 
-        ImageIcon movieImage = new ImageIcon("movie1.jpg");
+        ImageIcon movieImage = new ImageIcon("src\\View\\images\\movie1.jpg");
         JLabel image = new JLabel();
         image.setIcon(movieImage);
         image.setHorizontalAlignment(SwingConstants.CENTER);

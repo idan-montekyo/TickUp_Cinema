@@ -1,11 +1,10 @@
 package JUnitTests;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Model.MultiDimTheater;
-import Model.EnumDimensions;
+import Model.Enums.EnumDimensions;
 
 
 public class MultiDimTheaterTest {

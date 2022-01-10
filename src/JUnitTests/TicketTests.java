@@ -4,16 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.Ticket;
+import Model.Tickets;
 
 
 public class TicketTests {
-    private Ticket ticket = null;
+    private Tickets ticket = null;
 
     @BeforeEach
     void setUp()
     {
-        ticket = new Ticket();
+        ticket = new Tickets();
     }
 
     // Test for selecting amount of tickets

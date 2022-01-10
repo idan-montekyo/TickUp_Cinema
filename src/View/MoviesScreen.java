@@ -12,9 +12,9 @@ public class MoviesScreen extends MoviesFrame {
     private ImageIcon movieImage = new ImageIcon();
     private JLabel image = new JLabel();
 
-    private ImageIcon[] images = {new ImageIcon("movie1.jpg"), new ImageIcon("movie2.jpg"), new ImageIcon("movie3.jpg"), new ImageIcon("movie4.jpg")};
+    private ImageIcon[] images = {new ImageIcon("src\\View\\images\\movie1.jpg"), new ImageIcon("src\\View\\images\\movie2.jpg"), new ImageIcon("src\\View\\images\\movie3.jpg"), new ImageIcon("src\\View\\images\\movie4.jpg")};
 
-    MoviesScreen(){
+    public MoviesScreen(){
         JLabel title = new JLabel("MOVIES", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 40));
         title.setBounds(0, 0, 999, 60);

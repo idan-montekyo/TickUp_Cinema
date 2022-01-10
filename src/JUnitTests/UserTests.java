@@ -1,6 +1,8 @@
 package JUnitTests;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import Model.Enums.EnumTheaterType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
