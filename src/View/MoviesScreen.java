@@ -1,11 +1,14 @@
 package View;
 
+import Controller.Manager;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MoviesScreen extends MoviesFrame {
     private JButton next = new JButton("Choose Movie");
@@ -28,7 +31,7 @@ public class MoviesScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
-        String mv[]= { "movie1","movie2","movie3", "movie4","movie5","movie6","movie7", "movie8"};
+        ArrayList<String> mv = Manager.getMoviesTitles();
 
         JPanel contentPanel = new JPanel();
         contentPanel.setBounds(0, 80, 700, 370);
@@ -43,7 +46,7 @@ public class MoviesScreen extends MoviesFrame {
         bottom.setBounds(0, 450, 999, 113);
         bottom.setBackground(backgroundColor);
 
-        JList list = new JList(mv);
+        JList list = new JList(mv.toArray());
         list.setBackground(buttonColor);
         list.setForeground(textColor);
         list.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -81,24 +84,11 @@ public class MoviesScreen extends MoviesFrame {
             @Override
             public void valueChanged(ListSelectionEvent event) {
                 next.setEnabled(true);
-
                 JList source = (JList)event.getSource();
                 String selected = source.getSelectedValue().toString();
                 System.out.println(selected);
-                switch (selected){
-                    case "movie1":
-                        image.setIcon(images[0]);
-                        break;
-                    case "movie2":
-                        image.setIcon(images[1]);
-                        break;
-                    case "movie3":
-                        image.setIcon(images[2]);
-                        break;
-                    case "movie4":
-                        image.setIcon(images[3]);
-                        break;
-                }
+                String imagePath = Manager.getMoviePicture(selected);
+                image.setIcon(new ImageIcon(imagePath));
             }
         });
     }

@@ -24,6 +24,7 @@ public class Movies {
         return allMovies;
     }
 
+
     // Display all data about each movie at the cinema: Name, Duration and screening times
     public void displayMovies() {
         //Traversing list through Iterator
@@ -58,7 +59,7 @@ public class Movies {
         screenings_spiderman.add(spiderman3);
         screenings_spiderman.add(spiderman4);
         Movie m_Spiderman = new Movie("Spiderman", 0,
-                "\\src\\View\\images\\movie1.png",
+                "src\\View\\images\\movie1.jpg",
                 "scafjnkcbbea",
                 100,
                 screenings_spiderman);
@@ -67,7 +68,7 @@ public class Movies {
         ArrayList<Screening> screenings_hangover = new ArrayList<>();
         screenings_hangover.add(hangover1);
         Movie m_Hangover = new Movie("Hangover", 1,
-                "\\src\\View\\images\\movie1.png",
+                "src\\View\\images\\movie2.jpg",
                 "scafjnkcbbea",
                 88,
                 screenings_spiderman);
@@ -80,7 +81,7 @@ public class Movies {
         screenings_lordoftherings.add(lordoftherings2);
         screenings_lordoftherings.add(lordoftherings3);
         Movie m_LordOfTheRings = new Movie("Lord of the rings", 2,
-                "\\src\\View\\images\\movie1.png",
+                "src\\View\\images\\movie3.jpg",
                 "scafjnkcbbea",
                 96,
                 screenings_spiderman);
@@ -91,7 +92,7 @@ public class Movies {
         screenings_harrypotter.add(harrypotter1);
         screenings_harrypotter.add(harrypotter2);
         Movie m_HarryPotter = new Movie("Harry Potter", 3,
-                "\\src\\View\\images\\movie1.png",
+                "src\\View\\images\\movie4.jpg",
                 "scafjnkcbbea",
                 110,
                 screenings_spiderman);
@@ -102,7 +103,7 @@ public class Movies {
         screenings_piratesofthecaribbean.add(piratesofthecaribbean1);
         screenings_piratesofthecaribbean.add(piratesofthecaribbean2);
         Movie m_PiratesOfTheCaribbean = new Movie("Pirates of the Caribbean", 4,
-                "\\src\\View\\images\\movie1.png",
+                "src\\View\\images\\movie1.jpg",
                 "scafjnkcbbea",
                 120,
                 screenings_spiderman);
