@@ -6,12 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainScreen extends MoviesFrame {
-    private static final String mainScreenBackgroundPath = "cinema.png";
+    private static final String mainScreenBackgroundPath = "/View/images/cinema.png";
     private JButton showMoviesButton = new JButton("MOVIES");
     private JButton showOrdersButton = new JButton("ORDERS");
     private JButton login = new JButton("LOGIN");
 
-    MainScreen(){
+    public MainScreen(){
         showMoviesButton.setBounds(244, 320, 250, 70);
         showMoviesButton.setFont(new Font("Tahoma", Font.BOLD, 30));
         showMoviesButton.setBackground(buttonColor);
