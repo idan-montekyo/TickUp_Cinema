@@ -1,4 +1,4 @@
-package Model;
+package Model.Theaters;
 
 // Crate a class for the standard theater.
 public class StandardTheater extends Theater {

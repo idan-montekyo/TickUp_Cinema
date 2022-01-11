@@ -3,7 +3,7 @@ package JUnitTests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.MultiDimTheater;
+import Model.Theaters.MultiDimTheater;
 import Model.Enums.EnumDimensions;
 
 

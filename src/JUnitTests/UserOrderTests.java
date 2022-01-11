@@ -4,13 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.UserOrder;
-import Model.Screening;
-import Model.Movie;
-import Model.Enums.EnumTheaterType;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import Model.MovieOrders.UserOrder;
 
 public class UserOrderTests {
     private UserOrder userOrder = null;

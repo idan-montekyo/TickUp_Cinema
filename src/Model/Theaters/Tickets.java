@@ -1,6 +1,8 @@
-package Model;
+package Model.Theaters;
 
 import Model.Enums.EnumSeats;
+import Model.Theaters.Theater;
+
 import java.util.HashMap;
 
 // Crate a class for holding all four kinds of tickets.

@@ -1,4 +1,4 @@
-package Model;
+package Model.Theaters;
 
 // Crate a class for the VIP theater.
 public class VipTheater extends StandardTheater {

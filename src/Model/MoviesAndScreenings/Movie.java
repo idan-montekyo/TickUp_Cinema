@@ -1,7 +1,6 @@
-package Model;
+package Model.MoviesAndScreenings;
 
 import java.util.ArrayList;
-import java.util.List;
 
 // Create a class for a specific movie
 public class Movie {
@@ -12,7 +11,7 @@ public class Movie {
     private final String imagePath;
     private final String summary;
     private final int duration;
-    private final List<Screening> screeningsTime;
+    private final ArrayList<Screening> screeningsTime;
 
     // Constructor
     public Movie(String movieName, int serialNumber, String imagePath, String summary, int duration, ArrayList<Screening> screeningsTime) {
@@ -45,7 +44,7 @@ public class Movie {
         return duration;
     }
 
-    public List<Screening> getScreeningsTime() {
+    public ArrayList<Screening> getScreeningsTime() {
         return screeningsTime;
     }
 

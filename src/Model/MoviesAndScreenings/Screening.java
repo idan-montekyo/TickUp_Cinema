@@ -1,7 +1,9 @@
-package Model;
+package Model.MoviesAndScreenings;
 
 import Model.Enums.EnumSeats;
 import Model.Enums.EnumTheaterType;
+import Model.Theaters.Theater;
+import Model.Theaters.TheaterCreator;
 
 // Create a class for managing screening time for each movie.
 public class Screening {

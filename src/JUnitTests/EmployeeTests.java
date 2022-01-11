@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.Employee;
+import Model.Users.Employee;
 
 public class EmployeeTests {
     private Employee employee = null;

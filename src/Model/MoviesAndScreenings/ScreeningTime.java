@@ -1,4 +1,4 @@
-package Model;
+package Model.MoviesAndScreenings;
 
 import Model.Enums.EnumScreeningTime;
 import Model.Enums.EnumWeekDays;

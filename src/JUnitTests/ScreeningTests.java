@@ -3,8 +3,7 @@ package JUnitTests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.Screening;
-import Model.Enums.EnumTheaterType;
+import Model.MoviesAndScreenings.Screening;
 
 public class ScreeningTests {
     private Screening screening = null;

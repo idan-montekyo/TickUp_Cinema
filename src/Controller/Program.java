@@ -1,6 +1,7 @@
 package Controller;
 
 public class Program {
+
     public static void main(String[] args) {
         runProgram();
     }

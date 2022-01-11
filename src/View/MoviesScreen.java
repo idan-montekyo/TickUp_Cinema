@@ -11,11 +11,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class MoviesScreen extends MoviesFrame {
+    // Frame fields
     private JButton next = new JButton("Choose Movie");
     private ImageIcon movieImage = new ImageIcon();
     private JLabel image = new JLabel();
-
-    private ImageIcon[] images = {new ImageIcon("src\\View\\images\\movie1.jpg"), new ImageIcon("src\\View\\images\\movie2.jpg"), new ImageIcon("src\\View\\images\\movie3.jpg"), new ImageIcon("src\\View\\images\\movie4.jpg")};
+    // More fields for controller
+    private String selectedMovie;
+    private String movieImagePath;
 
     public MoviesScreen(){
         JLabel title = new JLabel("MOVIES", SwingConstants.CENTER);
@@ -76,27 +78,28 @@ public class MoviesScreen extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                switchToNextWindow();
+                Manager.switchToMovieInfoWindow(selectedMovie, movieImagePath);
             }
         });
 
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent event) {
-                next.setEnabled(true);
+                next.setEnabled(true);  // Enable button to the next stage (screen)
+                // Get user selection
                 JList source = (JList)event.getSource();
-                String selected = source.getSelectedValue().toString();
-                System.out.println(selected);
-                String imagePath = Manager.getMoviePicture(selected);
+                String selectedMovie = source.getSelectedValue().toString();
+                // Show selected movie's poster
+                String imagePath = Manager.getMoviePoster(selectedMovie);
                 image.setIcon(new ImageIcon(imagePath));
+                // Save movie's name and path
+                setSelectedMovie(selectedMovie, imagePath);
             }
         });
     }
 
-    private void switchToNextWindow(){
-        MovieInfo movieInfo = new MovieInfo();
-
-        movieInfo.setVisible(true);
-        this.setVisible(false);
+    private void setSelectedMovie(String movieName, String imagePath){
+        this.selectedMovie = movieName;
+        this.movieImagePath = imagePath;
     }
 }

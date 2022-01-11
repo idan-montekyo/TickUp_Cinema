@@ -1,14 +1,25 @@
 package View;
 
+import Controller.Manager;
+import Model.MoviesAndScreenings.Screening;
+
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MovieInfo extends MoviesFrame {
+    JButton next = new JButton("Choose Screening");
+    Screening selectedScreening;
 
-    MovieInfo(){
-        JLabel movieName = new JLabel("Movie name", SwingConstants.CENTER);
+    public MovieInfo(String movieNameStr, String movieImagePath){
+        ArrayList<Screening> screeningsList = Manager.getMovieScreenings(movieNameStr);
+        String content = Manager.getMovieSummary(movieNameStr);
+
+        JLabel movieName = new JLabel(movieNameStr, SwingConstants.CENTER);
         movieName.setFont(new Font("Tahoma", Font.BOLD, 30));
         movieName.setBounds(0, 0, 999, 60);
         movieName.setForeground(textColor);
@@ -28,8 +39,6 @@ public class MovieInfo extends MoviesFrame {
         JPanel contentPanel = new JPanel();
         contentPanel.setBounds(0, 123, 600, 420);
         contentPanel.setBackground(backgroundColor);
-
-        String content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae elementum sapien, id interdum tellus. Vestibulum ut condimentum orci. Duis placerat dolor nunc, quis fermentum dolor rhoncus vitae. Sed vel neque sed lorem sodales pharetra.\nNullam vel dui felis. Sed malesuada mattis magna ac egestas. Vestibulum ultricies ligula id ex euismod finibus. Nulla malesuada erat vel risus interdum sollicitudin. Nulla imperdiet volutpat ipsum, eget aliquet lorem pellentesque et. Etiam vitae ex diam.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae elementum sapien, id interdum tellus. Vestibulum ut condimentum orci. Duis placerat dolor nunc, quis fermentum dolor rhoncus vitae. Sed vel neque sed lorem sodales pharetra.\nNullam vel dui felis. Sed malesuada mattis magna ac egestas. Vestibulum ultricies ligula id ex euismod finibus. Nulla malesuada erat vel risus interdum sollicitudin. Nulla imperdiet volutpat ipsum, eget aliquet lorem pellentesque et. Etiam vitae ex diam.";
 
         JTextArea textArea = new JTextArea(content, 6, 20);
         textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -53,7 +62,7 @@ public class MovieInfo extends MoviesFrame {
         imagePanel.setBackground(backgroundColor);
         imagePanel.setLayout(new BorderLayout());
 
-        ImageIcon movieImage = new ImageIcon("src\\View\\images\\movie1.jpg");
+        ImageIcon movieImage = new ImageIcon(movieImagePath);
         JLabel image = new JLabel();
         image.setIcon(movieImage);
         image.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,7 +78,6 @@ public class MovieInfo extends MoviesFrame {
         bottom.setBounds(600, 450, 399, 113);
         bottom.setBackground(backgroundColor);
 
-        JButton next = new JButton("Choose Screening");
         next.setBounds(150, 480, 99, 50);
         next.setFont(new Font("Tahoma", Font.BOLD, 22));;
         next.setBackground(buttonColor);
@@ -77,12 +85,11 @@ public class MovieInfo extends MoviesFrame {
         next.setFocusable(false);
         next.setHorizontalAlignment(SwingConstants.CENTER);
         next.setVerticalAlignment(SwingConstants.CENTER);
+        next.setEnabled(false);
 
         bottom.add(next);
 
-        String sc[]= { "VIP 12:00 - 14:00","16:00 - 18:00", "3D 20:00 - 22:00", "VIP 20:00 - 22:00"};
-
-        JList list = new JList(sc);
+        JList list = new JList(screeningsList.toArray());
         list.setBackground(buttonColor);
         list.setForeground(textColor);
         list.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -100,15 +107,19 @@ public class MovieInfo extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                                       switchToNextWindow();
+                                       Manager.switchToTicketsWindow(selectedScreening);
                                    }
         });
-    }
 
-    private void switchToNextWindow(){
-        TicketsScreen ticketsScreen = new TicketsScreen();
-
-        ticketsScreen.setVisible(true);
-        this.setVisible(false);
+        list.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                next.setEnabled(true);  // Enable button to the next stage (screen)
+                // Get user selection
+                JList source = (JList)event.getSource();
+                Screening selected = (Screening)source.getSelectedValue();
+                selectedScreening = selected;
+            }
+        });
     }
 }

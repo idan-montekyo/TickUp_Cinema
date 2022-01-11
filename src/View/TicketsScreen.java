@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class TicketsScreen extends MoviesFrame {
 
-    TicketsScreen(){
+    public TicketsScreen(){
         JLabel title = new JLabel("Choose Tickets", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
         title.setBounds(0, 0, 999, 60);

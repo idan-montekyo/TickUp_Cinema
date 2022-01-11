@@ -2,11 +2,9 @@ package JUnitTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import Model.Enums.EnumTheaterType;
+import Model.Users.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import Model.*;
 
 public class UserTests {
     private User user = null;

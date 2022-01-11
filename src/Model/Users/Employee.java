@@ -1,4 +1,6 @@
-package Model;
+package Model.Users;
+
+import Model.MovieOrders.Orders;
 
 public class Employee extends User{
 

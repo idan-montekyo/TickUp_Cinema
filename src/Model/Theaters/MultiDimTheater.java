@@ -1,4 +1,4 @@
-package Model;
+package Model.Theaters;
 
 import Model.Enums.EnumDimensions;
 

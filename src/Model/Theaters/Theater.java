@@ -1,4 +1,4 @@
-package Model;
+package Model.Theaters;
 
 import Model.Enums.EnumSeats;
 
@@ -47,18 +47,8 @@ public abstract class Theater {
         seats[row][col] = seatStatus;
     }
 
+
     public void selectSeat(int row, int col){
         seats[row][col] = EnumSeats.SELECTED;
     }
-
-//    @Override
-//    public String toString() {
-////        StringBuilder theaterInfo = new StringBuilder();
-//
-////        theaterInfo.append("number ").append(this.theaterNumber).append(", ")
-////                .append(this.numRows).append(" rows, ").append(this.numCols)
-////                .append(" cols, ").append(this.price).append(" NIS.");
-//
-//        return theaterInfo.toString();
-//    }
 }

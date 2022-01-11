@@ -1,9 +1,10 @@
-package Model;
+package Model.Theaters;
 
 import Model.Enums.EnumDimensions;
 import Model.Enums.EnumTheaterType;
 
 public class TheaterCreator {
+    // Factory design pattern for Theater object:
     private static Theater theater;
 
     public static Theater TheaterCreator(EnumTheaterType theaterType, int theaterNumber){

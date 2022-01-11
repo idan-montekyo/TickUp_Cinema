@@ -1,11 +1,14 @@
-package Model;
+package Model.Users;
 
 import Model.Enums.EnumSeats;
+import Model.MoviesAndScreenings.Movie;
+import Model.MoviesAndScreenings.Movies;
+import Model.MoviesAndScreenings.Screening;
+import Model.Theaters.Tickets;
 
 import java.util.List;
 
 public class User {
-
     // Constructor
     public User() {}
 
