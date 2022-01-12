@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class SeatsRegularScreen extends MoviesFrame {
+public class SeatsMultiDimScreen extends MoviesFrame {
     private static final Color screenColor = new Color(227, 213, 202);
     private static final Color availableSeat = new Color(42, 157, 143);
     private static final Color unavailableSeat = new Color(231, 111, 81);
@@ -21,9 +21,9 @@ public class SeatsRegularScreen extends MoviesFrame {
     private final int numOfTicketsNeeded;
     private int numOfTicketsSelected;
     private final Theater selectedTheater;
-    private JButton[][] seats = new JButton[4][5];
+    private JButton[][] seats = new JButton[5][6];
 
-    public SeatsRegularScreen(int numOfTickets, Theater selectedTheater) {
+    public SeatsMultiDimScreen(int numOfTickets, Theater selectedTheater) {
         this.numOfTicketsNeeded = numOfTickets;
         this.numOfTicketsSelected = 0;
         this.selectedTheater = selectedTheater;
@@ -62,11 +62,11 @@ public class SeatsRegularScreen extends MoviesFrame {
         final int w = 40;
         final int h = 40;
 
-        int x = 315;
-        int y = 50;
+        int x = 280;
+        int y = 40;
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 6; j++) {
                 JButton b = new JButton();
                 b.setBounds(x + j * 80, y + i * 50, w, h);
                 if (seatsStatuses[i][j] == EnumSeats.AVAILABLE) {
@@ -90,8 +90,8 @@ public class SeatsRegularScreen extends MoviesFrame {
         theater.setBounds(0, 120, 999, 313);
         theater.setBackground(backgroundColor);
         theater.setLayout(null);
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 6; j++) {
                 theater.add(seats[i][j]);
             }
         }
@@ -144,8 +144,8 @@ public class SeatsRegularScreen extends MoviesFrame {
             numOfTicketsSelected++;
 
             if (numOfTicketsSelected == numOfTicketsNeeded) {
-                for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < 5; j++) {
+                for (int i = 0; i < 5; i++) {
+                    for (int j = 0; j < 6; j++) {
                         if (selectedTheater.getSeats()[i][j] == EnumSeats.AVAILABLE)
                             seats[i][j].setEnabled(false);
                     }
@@ -159,8 +159,8 @@ public class SeatsRegularScreen extends MoviesFrame {
             selectedTheater.setSeat(row+1, col+1, EnumSeats.AVAILABLE);
             numOfTicketsSelected--;
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 5; j++) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 6; j++) {
                     if (selectedTheater.getSeats()[i][j] == EnumSeats.AVAILABLE)
                         seats[i][j].setEnabled(true);
                 }

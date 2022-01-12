@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.MovieOrders.UserOrder;
+import Model.MovieOrders.Order;
 
 public class UserOrderTests {
-    private UserOrder userOrder = null;
+    private Order userOrder = null;
 //    Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, "12:00");
 //    ArrayList<Screening> screeningsList = new ArrayList<> (Arrays.asList(screening));
 //    Movie movie = new Movie("Spiderman", 0, 100, screeningsList);

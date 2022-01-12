@@ -1,13 +1,23 @@
 package View;
 
+import Controller.Manager;
+import Model.MoviesAndScreenings.Screening;
+import Model.MoviesAndScreenings.Tickets;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class TicketsScreen extends MoviesFrame {
+    JButton next = new JButton("Continue");
+    Screening screening;
+    private int[] tickets = {0, 0, 0, 0};
 
-    public TicketsScreen(){
+    public TicketsScreen(Screening selectedScreening){
+        this.screening = selectedScreening;
+
         JLabel title = new JLabel("Choose Tickets", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
         title.setBounds(0, 0, 999, 60);
@@ -21,7 +31,7 @@ public class TicketsScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
-        String[] numberOfTickets = {"1", "2", "3", "4", "5"};
+        String[] numberOfTickets = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
         JComboBox ticket1 = new JComboBox(numberOfTickets);
         JComboBox ticket2 = new JComboBox(numberOfTickets);
@@ -104,7 +114,6 @@ public class TicketsScreen extends MoviesFrame {
         o4.add(ticket4);
         o4.setBackground(backgroundColor);
 
-        JButton next = new JButton("Continue");
         next.setBounds(450, 430, 80, 50);
         next.setFont(new Font("Tahoma", Font.BOLD, 22));;
         next.setBackground(buttonColor);
@@ -112,6 +121,7 @@ public class TicketsScreen extends MoviesFrame {
         next.setFocusable(false);
         next.setHorizontalAlignment(SwingConstants.CENTER);
         next.setVerticalAlignment(SwingConstants.CENTER);
+        next.setEnabled(false);
 
         JPanel spacer2 = new JPanel();
         spacer2.setBounds(0, 350, 999, 43);
@@ -136,18 +146,57 @@ public class TicketsScreen extends MoviesFrame {
         this.add(o4);
         this.add(bottom);
 
+        ticket1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent event) {
+                JComboBox source = (JComboBox)event.getSource();
+                int selectedNumOfTickets = source.getSelectedIndex();
+                tickets[0] = selectedNumOfTickets;
+
+                next.setEnabled(checkIfTicketsSelected());
+            }
+        });
+
+        ticket2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent event) {
+                JComboBox source = (JComboBox)event.getSource();
+                int selectedNumOfTickets = source.getSelectedIndex();
+                tickets[2] = selectedNumOfTickets;
+
+                next.setEnabled(checkIfTicketsSelected());
+            }
+        });
+
+        ticket3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent event) {
+                JComboBox source = (JComboBox)event.getSource();
+                int selectedNumOfTickets = source.getSelectedIndex();
+                tickets[1] = selectedNumOfTickets;
+
+                next.setEnabled(checkIfTicketsSelected());
+            }
+        });
+
+        ticket4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent event) {
+                JComboBox source = (JComboBox)event.getSource();
+                int selectedNumOfTickets = source.getSelectedIndex();
+                tickets[3] = selectedNumOfTickets;
+
+                next.setEnabled(checkIfTicketsSelected());
+            }
+        });
+
         next.addActionListener(new ActionListener() {
-                                   public void actionPerformed(ActionEvent ae) {
-                                       switchToNextWindow();
-                                   }
-                               }
-        );
+            public void actionPerformed(ActionEvent event) {
+                Manager.IsValidNumberOfTickets(screening, tickets);
+            }
+        });
     }
 
-    private void switchToNextWindow(){
-        SeatsExtraScreen seatsExtraScreen = new SeatsExtraScreen();
-
-        seatsExtraScreen.setVisible(true);
-        this.setVisible(false);
+    // Checks if the user selected one ticket at least
+    private boolean checkIfTicketsSelected(){
+        if (Arrays.stream(tickets).sum() == 0)
+            return false;
+        return true;
     }
 }

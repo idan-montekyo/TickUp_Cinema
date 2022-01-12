@@ -1,21 +1,20 @@
 package Model;
 
 import Model.Enums.EnumScreeningTime;
+import Model.Enums.EnumSeats;
 import Model.Enums.EnumTheaterType;
 import Model.Enums.EnumWeekDays;
 import Model.MovieOrders.OrderBuilder;
 import Model.MovieOrders.Orders;
-import Model.MovieOrders.UserOrder;
+import Model.MovieOrders.Order;
 import Model.MoviesAndScreenings.Movie;
 import Model.MoviesAndScreenings.Movies;
 import Model.MoviesAndScreenings.Screening;
 import Model.MoviesAndScreenings.ScreeningTime;
+import Model.MoviesAndScreenings.Tickets;
 import Model.Users.Employee;
 import Model.Users.Employees;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class DemoData {
@@ -138,48 +137,52 @@ public class DemoData {
         return screeningTimes;
     }
 
-    public static ArrayList<Orders> initializeDemoOrders(Movies movies){
+    public static Orders initializeDemoOrders(Movies movies){
         OrderBuilder builder = new OrderBuilder();
 
+        // Create demo orders
         Movie m_Spiderman = movies.getAllMovies().get(0);
+        Screening spidermanSc = m_Spiderman.getScreeningsTime().get(2);
+        spidermanSc.getTheater().setSeat(5, 3, EnumSeats.TAKEN);
+        spidermanSc.getTheater().setSeat(5, 4, EnumSeats.TAKEN);
+        spidermanSc.getTheater().setSeat(5, 5, EnumSeats.TAKEN);
+        spidermanSc.getTheater().setSeat(5, 6, EnumSeats.TAKEN);
+        spidermanSc.getTheater().setSeat(4, 1, EnumSeats.TAKEN);
+        spidermanSc.getTheater().setSeat(4, 2, EnumSeats.TAKEN);
+        spidermanSc.getTheater().setSeat(4, 3, EnumSeats.TAKEN);
+
+        Tickets spidermanTickets1 = new Tickets();
+        Tickets spidermanTickets2 = new Tickets();
+        spidermanTickets1.setNumOfTypeTickets("Standard", 3);
+        spidermanTickets2.setNumOfTypeTickets("Standard", 2);
+        spidermanTickets2.setNumOfTypeTickets("Student", 2);
+
+        // Using builder
+        builder.buildUserPhoneNumber("050-244-5837");
+        builder.buildMovie(m_Spiderman);
+        builder.buildScreening(spidermanSc);
+        builder.buildTickets(spidermanTickets1);
+        builder.buildTotalBill();
+        Order order1 = builder.getOrder();
+
+        builder.buildUserPhoneNumber("052-356-2227");
+        builder.buildMovie(m_Spiderman);
+        builder.buildScreening(spidermanSc);
+        builder.buildTickets(spidermanTickets2);
+        builder.buildTotalBill();
+        Order order2 = builder.getOrder();
+
+
         Movie m_Hangover = movies.getAllMovies().get(1);
         Movie m_LordOfTheRings = movies.getAllMovies().get(2);
         Movie m_HarryPotter = movies.getAllMovies().get(3);
         Movie m_PiratesOfTheCaribbean = movies.getAllMovies().get(4);
 
-        builder.buildUserPhoneNumber("050-244-5837");
-        builder.buildMovie(m_Spiderman);
-        builder.buildScreening(m_Spiderman.getScreeningsTime().get(3));
-        HashMap<Integer, Integer[]> takenSeats = new HashMap();
-        Integer[] takenSeatsRow4 = {1, 2, 3};
-        Integer[] takenSeatsRow2 = {3, 4};
-        takenSeats.put(4, takenSeatsRow4);
-        takenSeats.put(2, takenSeatsRow2);
-        builder.buildTickets();
 
-        UserOrder order1 = new UserOrder("050-244-5837", m_Spiderman,
-                m_Spiderman.getScreeningsTime().get(3), 1, 2, 3);
+        Orders orders = new Orders();
+        orders.addOrder(order1);
+        orders.addOrder(order2);
 
-        UserOrder order2 = new UserOrder("052-735-7255", m_Hangover,
-                m_Hangover.getScreeningsTime().get(0), 0, 4, 0);
-
-        UserOrder order3 = new UserOrder("054-362-1356", m_LordOfTheRings,
-                m_LordOfTheRings.getScreeningsTime().get(2), 2, 0, 3);
-
-        UserOrder order4 = new UserOrder("055-290-3682", m_HarryPotter,
-                m_HarryPotter.getScreeningsTime().get(1), 4, 0, 2);
-
-        UserOrder order5 = new UserOrder("057-621-4289", m_PiratesOfTheCaribbean,
-                m_PiratesOfTheCaribbean.getScreeningsTime().get(0), 2, 0, 0);
-
-
-        List<UserOrder> orders_list = new ArrayList<>();
-        orders_list.add(order1);
-        orders_list.add(order2);
-        orders_list.add(order3);
-        orders_list.add(order4);
-        orders_list.add(order5);
-
-        return (new Orders(orders_list));
+        return (orders);
     }
 }

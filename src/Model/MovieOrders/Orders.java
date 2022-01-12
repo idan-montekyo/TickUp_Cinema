@@ -1,8 +1,5 @@
 package Model.MovieOrders;
 
-import Model.MoviesAndScreenings.Movie;
-import Model.MoviesAndScreenings.Movies;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,15 +7,15 @@ import java.util.List;
 // Crate a class that holds all user-orders.
 public class Orders {
     // Fields
-    private final List<UserOrder> allOrders;
+    private final ArrayList<Order> allOrders;
 
     // Constructor
-    public Orders(List<UserOrder> orders) {
-        this.allOrders = orders;
+    public Orders() {
+        allOrders = new ArrayList<>();
     }
 
     // Getters
-    public List<UserOrder> getAllOrders() {
+    public List<Order> getAllOrders() {
         return allOrders;
     }
 
@@ -28,7 +25,7 @@ public class Orders {
 
 
     // Add a new order to allOrders list
-    public void addOrder(UserOrder order) {
+    public void addOrder(Order order) {
         allOrders.add(order);
     }
 

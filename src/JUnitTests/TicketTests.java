@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.Theaters.Tickets;
+import Model.MoviesAndScreenings.Tickets;
 
 
 public class TicketTests {

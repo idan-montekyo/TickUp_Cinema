@@ -1,14 +1,17 @@
 package View;
 
+import Controller.Manager;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class OrdersManagerScreen extends MoviesFrame {
+public class OrdersScreen extends MoviesFrame {
     private JTextArea textArea = new JTextArea("", 6, 20);
 
-    public OrdersManagerScreen(){
+    public OrdersScreen(){
         JLabel title = new JLabel("Orders", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 40));
         title.setBounds(0, 0, 999, 60);
@@ -22,7 +25,7 @@ public class OrdersManagerScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
-        String orders[]= { "order1", "order2", "order3", "order4", "order5", "order6", "order7", "order8"};
+        ArrayList<String> ordersPhones = Manager.getOrdersPhones();
 
         JPanel ordersPanel = new JPanel();
         ordersPanel.setBounds(0, 80, 500, 403);
@@ -36,7 +39,7 @@ public class OrdersManagerScreen extends MoviesFrame {
         bottom.setBounds(0, 450, 999, 80);
         bottom.setBackground(backgroundColor);
 
-        JList list = new JList(orders);
+        JList list = new JList(ordersPhones.toArray());
         list.setBackground(buttonColor);
         list.setForeground(textColor);
         list.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -53,7 +56,7 @@ public class OrdersManagerScreen extends MoviesFrame {
         textArea.setForeground(textColor);
 
         JScrollPane contentScroller = new JScrollPane(textArea);
-        contentScroller.setPreferredSize(new Dimension(350, 250));
+        contentScroller.setPreferredSize(new Dimension(400, 250));
         contentScroller.getViewport().setOpaque(false);
         contentScroller.setOpaque(false);
         contentScroller.setBorder(null);
@@ -68,9 +71,8 @@ public class OrdersManagerScreen extends MoviesFrame {
         list.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 JList source = (JList)event.getSource();
-                String selected = source.getSelectedValue().toString();
-                System.out.println(selected);
-                String content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nSed vitae elementum sapien, id interdum tellus.\nVestibulum ut condimentum orci. Duis placerat dolor nunc, quis fermentum dolor rhoncus vitae.\nSed vel neque sed lorem sodales pharetra.\nNullam vel dui felis. Sed malesuada mattis magna ac egestas.";
+                int selectedOrder = source.getSelectedIndex();
+                String content = Manager.getOrderInfo(selectedOrder);
                 textArea.setText(content);
             }
         });

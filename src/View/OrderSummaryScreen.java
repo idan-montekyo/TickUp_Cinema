@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OrderScreen extends MoviesFrame {
+public class OrderSummaryScreen extends MoviesFrame {
 
-    OrderScreen(){
+    OrderSummaryScreen(){
         JLabel movieName = new JLabel("Order Details", SwingConstants.CENTER);
         movieName.setFont(new Font("Tahoma", Font.BOLD, 30));
         movieName.setBounds(0, 0, 999, 60);

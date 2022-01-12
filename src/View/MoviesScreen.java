@@ -16,8 +16,7 @@ public class MoviesScreen extends MoviesFrame {
     private ImageIcon movieImage = new ImageIcon();
     private JLabel image = new JLabel();
     // More fields for controller
-    private String selectedMovie;
-    private String movieImagePath;
+    private int selectedMovie;
 
     public MoviesScreen(){
         JLabel title = new JLabel("MOVIES", SwingConstants.CENTER);
@@ -78,7 +77,7 @@ public class MoviesScreen extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                Manager.switchToMovieInfoWindow(selectedMovie, movieImagePath);
+                Manager.switchToMovieInfoWindow(selectedMovie);
             }
         });
 
@@ -88,18 +87,17 @@ public class MoviesScreen extends MoviesFrame {
                 next.setEnabled(true);  // Enable button to the next stage (screen)
                 // Get user selection
                 JList source = (JList)event.getSource();
-                String selectedMovie = source.getSelectedValue().toString();
+                int selectedMovie = source.getSelectedIndex();
                 // Show selected movie's poster
                 String imagePath = Manager.getMoviePoster(selectedMovie);
                 image.setIcon(new ImageIcon(imagePath));
                 // Save movie's name and path
-                setSelectedMovie(selectedMovie, imagePath);
+                setSelectedMovie(selectedMovie);
             }
         });
     }
 
-    private void setSelectedMovie(String movieName, String imagePath){
-        this.selectedMovie = movieName;
-        this.movieImagePath = imagePath;
+    private void setSelectedMovie(int movieIndex){
+        this.selectedMovie = movieIndex;
     }
 }

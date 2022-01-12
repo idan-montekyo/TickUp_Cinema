@@ -19,8 +19,8 @@ public class Screening {
         // Initialize theater seats
         int rows = this.theater.getNumRows();
         int cols = this.theater.getNumCols();
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
+        for (int row = 1; row <= rows; row++) {
+            for (int col = 1; col <= cols; col++) {
                 this.theater.setSeat(row, col, EnumSeats.AVAILABLE);
             }
         }

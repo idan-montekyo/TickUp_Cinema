@@ -2,11 +2,11 @@ package Model.MovieOrders;
 
 import Model.MoviesAndScreenings.Movie;
 import Model.MoviesAndScreenings.Screening;
-import Model.Theaters.Tickets;
+import Model.MoviesAndScreenings.Tickets;
 
 public class OrderBuilder {
     // Builder design pattern for UserOrder object:
-    private UserOrder order;
+    private Order order;
 
     public OrderBuilder(){
         resetBuilder();
@@ -28,13 +28,17 @@ public class OrderBuilder {
         order.setTickets(tickets);
     }
 
-    public UserOrder getOrder(){
-        UserOrder order = this.order;
+    public void buildTotalBill(){
+        order.setTotalBill();
+    }
+
+    public Order getOrder(){
+        Order order = this.order;
         this.resetBuilder();
         return order;
     }
 
     private void resetBuilder(){
-        order = new UserOrder();
+        order = new Order();
     }
 }

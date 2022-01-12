@@ -1,4 +1,4 @@
-package Model.Theaters;
+package Model.MoviesAndScreenings;
 
 import Model.Enums.EnumSeats;
 import Model.Theaters.Theater;
@@ -37,23 +37,6 @@ public class Tickets {
         }
     }
 
-    public boolean isValidNumberOfTickets(Theater theater){
-        int numOfAvailableTickets = 0;
-
-        for (int i = 0; i < theater.getNumRows(); i++){
-            for (int j = 0; j < theater.getNumCols(); j++){
-                if (theater.getSeats()[i][j].equals(EnumSeats.AVAILABLE))
-                    numOfAvailableTickets++;
-            }
-        }
-
-        if (this.totalNumberOfTickets() > numOfAvailableTickets)
-            return false;
-        if (this.totalNumberOfTickets() == 0)
-            return false;
-        return true;
-    }
-
     private int totalNumberOfTickets(){
         int total = 0;
 
@@ -66,7 +49,7 @@ public class Tickets {
 
     @Override
     public String toString() {
-        return "Amounts:" +
+        return "\nTickets:" +
                 "\nStandard tickets - " + this.ticketsQuantity.get("Standard") +
                 "\nStudent tickets - " + this.ticketsQuantity.get("Student") +
                 "\nVeteran tickets - " + this.ticketsQuantity.get("Veteran") +

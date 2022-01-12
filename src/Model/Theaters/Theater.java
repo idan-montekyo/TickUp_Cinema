@@ -44,11 +44,26 @@ public abstract class Theater {
 
     // Setters
     public void setSeat(int row, int col, EnumSeats seatStatus) {
-        seats[row][col] = seatStatus;
+        seats[row-1][col-1] = seatStatus;
     }
 
 
     public void selectSeat(int row, int col){
-        seats[row][col] = EnumSeats.SELECTED;
+        seats[row-1][col-1] = EnumSeats.SELECTED;
+    }
+
+    public boolean isValidNumberOfTickets(int numOfSelectedTickets){
+        int numOfAvailableTickets = 0;
+
+        for (int i = 0; i < numRows; i++){
+            for (int j = 0; j < numCols; j++){
+                if (seats[i][j].equals(EnumSeats.AVAILABLE))
+                    numOfAvailableTickets++;
+            }
+        }
+
+        if (numOfSelectedTickets > numOfAvailableTickets)
+            return false;
+        return true;
     }
 }

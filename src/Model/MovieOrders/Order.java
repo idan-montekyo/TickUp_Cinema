@@ -2,10 +2,10 @@ package Model.MovieOrders;
 
 import Model.MoviesAndScreenings.Movie;
 import Model.MoviesAndScreenings.Screening;
-import Model.Theaters.Tickets;
+import Model.MoviesAndScreenings.Tickets;
 
 // Crate a class for a single order.
-public class UserOrder {
+public class Order {
     // Defines
     private static final double STUDENT_UNIFORM_DISCOUNT = 0.4;
     private static final double VETERAN_DISCOUNT = 0.6;
@@ -18,7 +18,7 @@ public class UserOrder {
     private double totalBill;
 
     // Constructor
-    public UserOrder(){
+    public Order(){
         this.tickets = new Tickets();
     }
 
@@ -79,13 +79,12 @@ public class UserOrder {
 
     @Override
     public String toString() {
-        return "Order for user: " + userPhoneNumber +
+        return "Ordered by: " + userPhoneNumber +
                 "\nMovie: " + movie.getMovieName() +
-                "\nDuration: " + movie.getDuration() +
-                "\nStarts at: " + screening.getScreeningTime() +
-                "\n" + screening.getTheater().toString() + " - " + screening.getTheater().getTheaterNumber() +
-                "\n" + tickets +
-                "\nTotal bill: " + totalBill;
+                "\nTheater number " + screening.getTheater().getTheaterNumber() +
+                ": " + screening.toString() +
+                tickets.toString() +
+                "\n\nTotal bill: " + totalBill;
     }
 
 }

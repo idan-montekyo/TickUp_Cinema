@@ -15,9 +15,11 @@ public class MovieInfo extends MoviesFrame {
     JButton next = new JButton("Choose Screening");
     Screening selectedScreening;
 
-    public MovieInfo(String movieNameStr, String movieImagePath){
-        ArrayList<Screening> screeningsList = Manager.getMovieScreenings(movieNameStr);
-        String content = Manager.getMovieSummary(movieNameStr);
+    public MovieInfo(int movieIndex){
+        String movieNameStr = Manager.getMovieName(movieIndex);
+        String movieImagePath = Manager.getMoviePoster(movieIndex);
+        ArrayList<Screening> screeningsList = Manager.getMovieScreenings(movieIndex);
+        String content = Manager.getMovieSummary(movieIndex);
 
         JLabel movieName = new JLabel(movieNameStr, SwingConstants.CENTER);
         movieName.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -33,14 +35,14 @@ public class MovieInfo extends MoviesFrame {
         top.setBackground(backgroundColor);
 
         JPanel blank = new JPanel();
-        blank.setBounds(0, 80, 600, 43);
+        blank.setBounds(0, 80, 999, 43);
         blank.setBackground(backgroundColor);
 
         JPanel contentPanel = new JPanel();
-        contentPanel.setBounds(0, 123, 600, 420);
+        contentPanel.setBounds(0, 123, 700, 220); // **
         contentPanel.setBackground(backgroundColor);
 
-        JTextArea textArea = new JTextArea(content, 6, 20);
+        JTextArea textArea = new JTextArea(content, 6, 30);
         textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -50,7 +52,7 @@ public class MovieInfo extends MoviesFrame {
         textArea.setForeground(textColor);
 
         JScrollPane contentScroller = new JScrollPane(textArea);
-        contentScroller.setPreferredSize(new Dimension(450, 350));
+        contentScroller.setPreferredSize(new Dimension(500, 200));
         contentScroller.getViewport().setOpaque(false);
         contentScroller.setOpaque(false);
         contentScroller.setBorder(null);
@@ -58,24 +60,24 @@ public class MovieInfo extends MoviesFrame {
         contentPanel.add(contentScroller);
 
         JPanel imagePanel = new JPanel();
-        imagePanel.setBounds(600, 80, 399, 270);
+        imagePanel.setBounds(700, 123, 299, 420);
         imagePanel.setBackground(backgroundColor);
         imagePanel.setLayout(new BorderLayout());
 
         ImageIcon movieImage = new ImageIcon(movieImagePath);
         JLabel image = new JLabel();
         image.setIcon(movieImage);
-        image.setHorizontalAlignment(SwingConstants.CENTER);
-        image.setVerticalAlignment(SwingConstants.CENTER);
+        image.setHorizontalAlignment(SwingConstants.LEFT);
+        image.setVerticalAlignment(SwingConstants.TOP);
 
         imagePanel.add(image);
 
         JPanel screenings = new JPanel();
-        screenings.setBounds(600, 350, 399, 100);
+        screenings.setBounds(0, 343, 700, 100);
         screenings.setBackground(backgroundColor);
 
         JPanel bottom = new JPanel();
-        bottom.setBounds(600, 450, 399, 113);
+        bottom.setBounds(0, 443, 700, 100);
         bottom.setBackground(backgroundColor);
 
         next.setBounds(150, 480, 99, 50);
@@ -84,7 +86,7 @@ public class MovieInfo extends MoviesFrame {
         next.setForeground(textColor);
         next.setFocusable(false);
         next.setHorizontalAlignment(SwingConstants.CENTER);
-        next.setVerticalAlignment(SwingConstants.CENTER);
+        next.setVerticalAlignment(SwingConstants.TOP);
         next.setEnabled(false);
 
         bottom.add(next);
@@ -95,7 +97,7 @@ public class MovieInfo extends MoviesFrame {
         list.setFont(new Font("Tahoma", Font.PLAIN, 16));
 
         JScrollPane listScroller = new JScrollPane(list);
-        listScroller.setPreferredSize(new Dimension(280, 70));
+        listScroller.setPreferredSize(new Dimension(500, 70));
 
         screenings.add(listScroller);
         this.add(top);
