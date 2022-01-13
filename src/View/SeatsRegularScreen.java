@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Manager;
 import Model.Enums.EnumSeats;
 import Model.Theaters.Theater;
 import View.MoviesFrame;
@@ -123,16 +124,13 @@ public class SeatsRegularScreen extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                switchToNextWindow();
+                seatsConfirmation();
             }
         });
     }
 
-    private void switchToNextWindow() {
-        OrderSummaryScreen orderScreen = new OrderSummaryScreen();
-
-        orderScreen.setVisible(true);
-        this.setVisible(false);
+    private void seatsConfirmation() {
+        Manager.switchToOrderDetailsAndConfirmation(selectedTheater, 4, 5);
     }
 
     private void updateSeat(JButton button, int row, int col) {
@@ -158,6 +156,7 @@ public class SeatsRegularScreen extends MoviesFrame {
             button.setBackground(availableSeat);
             selectedTheater.setSeat(row+1, col+1, EnumSeats.AVAILABLE);
             numOfTicketsSelected--;
+            next.setEnabled(false);
 
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 5; j++) {

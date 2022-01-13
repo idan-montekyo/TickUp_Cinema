@@ -1,12 +1,16 @@
 package Controller;
+
 import Model.DemoData;
+import Model.Enums.EnumSeats;
+import Model.MovieOrders.OrderBuilder;
 import Model.MovieOrders.Orders;
 import Model.MovieOrders.Order;
 import Model.MoviesAndScreenings.Movie;
 import Model.MoviesAndScreenings.Movies;
 import Model.MoviesAndScreenings.Screening;
+import Model.MoviesAndScreenings.Tickets;
 import Model.Theaters.MultiDimTheater;
-import Model.Theaters.StandardTheater;
+import Model.Theaters.Theater;
 import Model.Theaters.VipTheater;
 import Model.Users.Employees;
 import View.*;
@@ -24,11 +28,14 @@ public class Manager {
     private static Employees employees;
     private static Movies movies;
     private static Orders orders;
+    private static OrderBuilder orderBuilder;
+    private static Order currentOrder;
 
     public Manager(){
         employees = DemoData.initializeDemoEmployees();
         movies = DemoData.initializeDemoMovies();
         orders = DemoData.initializeDemoOrders(movies);
+        orderBuilder = new OrderBuilder();
     }
 
 
@@ -93,6 +100,8 @@ public class Manager {
     }
 
     public static void switchToMovieInfoWindow(int movieIndex){
+        orderBuilder.buildMovie(movies.getAllMovies().get(movieIndex));
+
         currentScreen.setVisible(false);
 
         currentScreen = new MovieInfo(movieIndex);
@@ -108,6 +117,8 @@ public class Manager {
     }
 
     public static void switchToTicketsWindow(Screening selectedScreening){
+        orderBuilder.buildScreening(selectedScreening);
+
         currentScreen.setVisible(false);
 
         currentScreen = new TicketsScreen(selectedScreening);
@@ -131,11 +142,60 @@ public class Manager {
         int numOfTickets = Arrays.stream(tickets).sum();
         boolean flag =  selectedScreening.getTheater().isValidNumberOfTickets(numOfTickets);
 
-        if (flag)
+        if (flag){
+            buildTickets(tickets);
             switchToSeatsWindow(selectedScreening, numOfTickets);
+        }
         else{
             String message = "There is not enough seats in the theater.\nPlease select less tickets.";
             JOptionPane.showMessageDialog(currentScreen, message, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private static void buildTickets(int[] numOfTickets){
+        Tickets tickets = new Tickets();
+
+        tickets.setNumOfTypeTickets("Standard", numOfTickets[0]);
+        tickets.setNumOfTypeTickets("Student", numOfTickets[1]);
+        tickets.setNumOfTypeTickets("Veteran", numOfTickets[2]);
+        tickets.setNumOfTypeTickets("Policeman/Soldier", numOfTickets[3]);
+
+        orderBuilder.buildTickets(tickets);
+        orderBuilder.buildTotalBill();
+    }
+
+    public static void switchToOrderDetailsAndConfirmation(Theater theater, int rows, int cols){
+        StringBuilder selectedSeats = new StringBuilder("");
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (theater.getSeats()[i][j] == EnumSeats.SELECTED) {
+                    theater.setSeat(i+1, j+1, EnumSeats.TAKEN);
+                    selectedSeats.append("\nRow - ").append(i+1).append(" Col - ").append(j+1);
+                }
+            }
+        }
+
+        orderBuilder.buildSeats(selectedSeats.toString());
+
+        currentScreen.setVisible(false);
+
+        currentOrder = orderBuilder.getOrder();
+        currentScreen = new OrderSummaryScreen(currentOrder);
+        currentScreen.setVisible(true);
+    }
+
+    public static void PlaceOrder(String phoneNumber){
+        if (!currentOrder.phoneNumberValidation(phoneNumber)){
+            String message = "The phone number is invalid.";
+            JOptionPane.showMessageDialog(currentScreen, message, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            currentOrder.setUserPhoneNumber(phoneNumber);
+            orders.addOrder(currentOrder);
+
+            mainScreen.setVisible(true);
+            currentScreen.setVisible(false);
         }
     }
 }

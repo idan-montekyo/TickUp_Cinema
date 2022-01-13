@@ -32,6 +32,10 @@ public class OrderBuilder {
         order.setTotalBill();
     }
 
+    public void buildSeats(String seats) {
+        order.setSeats(seats);
+    }
+
     public Order getOrder(){
         Order order = this.order;
         this.resetBuilder();

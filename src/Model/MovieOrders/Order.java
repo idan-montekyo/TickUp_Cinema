@@ -15,6 +15,7 @@ public class Order {
     private Movie movie;
     private Screening screening;
     private Tickets tickets;
+    private String selectedSeats;
     private double totalBill;
 
     // Constructor
@@ -64,6 +65,10 @@ public class Order {
         this.totalBill = getBill();
     }
 
+    public void setSeats(String seats){
+        this.selectedSeats = seats;
+    }
+
 
     // Calculate total price for specific order
     public int getBill() {
@@ -77,14 +82,20 @@ public class Order {
         return bill;
     }
 
+    public boolean phoneNumberValidation(String phone){
+        if (!phone.startsWith("05") && phone.length() != 10)
+            return false;
+        return true;
+    }
+
     @Override
     public String toString() {
-        return "Ordered by: " + userPhoneNumber +
-                "\nMovie: " + movie.getMovieName() +
-                "\nTheater number " + screening.getTheater().getTheaterNumber() +
+        return "Movie: " + movie.getMovieName() +
+                "\n\nTheater number " + screening.getTheater().getTheaterNumber() +
                 ": " + screening.toString() +
-                tickets.toString() +
-                "\n\nTotal bill: " + totalBill;
+                "\n" + tickets.toString() +
+                "\n\nSelected seats: " + selectedSeats +
+                "\n\n\nTotal bill: " + totalBill;
     }
 
 }

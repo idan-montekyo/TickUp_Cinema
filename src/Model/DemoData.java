@@ -141,6 +141,9 @@ public class DemoData {
         OrderBuilder builder = new OrderBuilder();
 
         // Create demo orders
+        StringBuilder selectedSeats1 = new StringBuilder("");
+        StringBuilder selectedSeats2 = new StringBuilder("");
+
         Movie m_Spiderman = movies.getAllMovies().get(0);
         Screening spidermanSc = m_Spiderman.getScreeningsTime().get(2);
         spidermanSc.getTheater().setSeat(5, 3, EnumSeats.TAKEN);
@@ -151,6 +154,15 @@ public class DemoData {
         spidermanSc.getTheater().setSeat(4, 2, EnumSeats.TAKEN);
         spidermanSc.getTheater().setSeat(4, 3, EnumSeats.TAKEN);
 
+        selectedSeats1.append("\nRow - ").append(5).append(" Col - ").append(3);
+        selectedSeats1.append("\nRow - ").append(5).append(" Col - ").append(4);
+        selectedSeats1.append("\nRow - ").append(5).append(" Col - ").append(5);
+        selectedSeats1.append("\nRow - ").append(5).append(" Col - ").append(6);
+
+        selectedSeats2.append("\nRow - ").append(54).append(" Col - ").append(1);
+        selectedSeats2.append("\nRow - ").append(54).append(" Col - ").append(2);
+        selectedSeats2.append("\nRow - ").append(54).append(" Col - ").append(3);
+
         Tickets spidermanTickets1 = new Tickets();
         Tickets spidermanTickets2 = new Tickets();
         spidermanTickets1.setNumOfTypeTickets("Standard", 3);
@@ -158,17 +170,19 @@ public class DemoData {
         spidermanTickets2.setNumOfTypeTickets("Student", 2);
 
         // Using builder
-        builder.buildUserPhoneNumber("050-244-5837");
+        builder.buildUserPhoneNumber("0502445837");
         builder.buildMovie(m_Spiderman);
         builder.buildScreening(spidermanSc);
         builder.buildTickets(spidermanTickets1);
+        builder.buildSeats(selectedSeats1.toString());
         builder.buildTotalBill();
         Order order1 = builder.getOrder();
 
-        builder.buildUserPhoneNumber("052-356-2227");
+        builder.buildUserPhoneNumber("0523562227");
         builder.buildMovie(m_Spiderman);
         builder.buildScreening(spidermanSc);
         builder.buildTickets(spidermanTickets2);
+        builder.buildSeats(selectedSeats2.toString());
         builder.buildTotalBill();
         Order order2 = builder.getOrder();
 

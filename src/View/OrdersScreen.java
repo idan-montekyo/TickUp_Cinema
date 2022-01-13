@@ -56,7 +56,7 @@ public class OrdersScreen extends MoviesFrame {
         textArea.setForeground(textColor);
 
         JScrollPane contentScroller = new JScrollPane(textArea);
-        contentScroller.setPreferredSize(new Dimension(400, 250));
+        contentScroller.setPreferredSize(new Dimension(400, 350));
         contentScroller.getViewport().setOpaque(false);
         contentScroller.setOpaque(false);
         contentScroller.setBorder(null);

@@ -1,19 +1,30 @@
 package View;
 
+import Controller.Manager;
+import Model.MovieOrders.Order;
+
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class OrderSummaryScreen extends MoviesFrame {
+    private Order order;
+    private String phoneNumber;
+    JTextField text = new JTextField(20);
+    JButton next = new JButton("Place Order");
 
-    OrderSummaryScreen(){
+    public OrderSummaryScreen(Order order){
+        this.order = order;
+
         JLabel movieName = new JLabel("Order Details", SwingConstants.CENTER);
         movieName.setFont(new Font("Tahoma", Font.BOLD, 30));
         movieName.setBounds(0, 0, 999, 60);
         movieName.setForeground(textColor);
         movieName.setHorizontalAlignment(SwingConstants.CENTER);
-        movieName.setVerticalAlignment(SwingConstants.BOTTOM);
+        movieName.setVerticalAlignment(SwingConstants.CENTER);
 
         JPanel top = new JPanel();
         top.setBounds(0, 0, 999, 80);
@@ -22,14 +33,14 @@ public class OrderSummaryScreen extends MoviesFrame {
         top.setBackground(backgroundColor);
 
         JPanel blank = new JPanel();
-        blank.setBounds(0, 80, 999, 93);
+        blank.setBounds(0, 80, 999, 3);
         blank.setBackground(backgroundColor);
 
         JPanel contentPanel = new JPanel();
-        contentPanel.setBounds(0, 173, 999, 277);
+        contentPanel.setBounds(0, 83, 999, 277);
         contentPanel.setBackground(backgroundColor);
 
-        String content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae elementum sapien, id interdum tellus. Vestibulum ut condimentum orci. Duis placerat dolor nunc, quis fermentum dolor rhoncus vitae. Sed vel neque sed lorem sodales pharetra.\nNullam vel dui felis. Sed malesuada mattis magna ac egestas. Vestibulum ultricies ligula id ex euismod finibus. Nulla malesuada erat vel risus interdum sollicitudin. Nulla imperdiet volutpat ipsum, eget aliquet lorem pellentesque et. Etiam vitae ex diam.";
+        String content = order.toString();
 
         JTextArea textArea = new JTextArea(content, 6, 20);
         textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -48,11 +59,34 @@ public class OrderSummaryScreen extends MoviesFrame {
 
         contentPanel.add(contentScroller);
 
+        JPanel blank2 = new JPanel();
+        blank2.setBounds(0, 360, 999, 40);
+        blank2.setBackground(backgroundColor);
+
+        JPanel phone = new JPanel();
+        phone.setBounds(0, 400, 999, 60);
+        phone.setBackground(backgroundColor);
+
+        JLabel message = new JLabel("Plese enter your phone number:");
+        message.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        message.setBackground(backgroundColor);
+        message.setForeground(textColor);
+        message.setHorizontalAlignment(SwingConstants.CENTER);
+        message.setVerticalAlignment(SwingConstants.CENTER);
+
+        text.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        text.setBackground(buttonColor);
+        text.setForeground(textColor);
+        text.setSize(200, 20);
+        text.setHorizontalAlignment(SwingConstants.CENTER);
+
+        phone.add(message);
+        phone.add(text);
+
         JPanel bottom = new JPanel();
-        bottom.setBounds(0, 450, 999, 113);
+        bottom.setBounds(0, 460, 999, 103);
         bottom.setBackground(backgroundColor);
 
-        JButton next = new JButton("Pay");
         next.setBounds(350, 480, 299, 50);
         next.setFont(new Font("Tahoma", Font.BOLD, 22));;
         next.setBackground(buttonColor);
@@ -66,20 +100,37 @@ public class OrderSummaryScreen extends MoviesFrame {
         this.add(top);
         this.add(blank);
         this.add(contentPanel);
+        this.add(blank2);
+        this.add(phone);
         this.add(bottom);
 
+        text.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                warn();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                warn();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                warn();
+            }
+
+            public void warn() {
+                if (Integer.parseInt(text.getText()) <= 0){
+                    next.setEnabled(false);
+                }
+                else
+                {
+                    next.setEnabled(true);
+                    phoneNumber = text.getText();
+                }
+            }
+        });
+
         next.addActionListener(new ActionListener() {
-                                   public void actionPerformed(ActionEvent ae) {
-                                       switchToNextWindow();
-                                   }
-                               }
-        );
-    }
-
-    private void switchToNextWindow(){
-        MainScreen mainScreen = new MainScreen();
-
-        mainScreen.setVisible(true);
-        this.setVisible(false);
+            public void actionPerformed(ActionEvent event) {
+                Manager.PlaceOrder(phoneNumber);
+            }
+        });
     }
 }
