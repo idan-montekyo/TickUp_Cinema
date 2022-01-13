@@ -81,6 +81,11 @@ public class Manager {
         return orders.getAllOrders().get(orderIndex).toString();
     }
 
+    public static void backToMainScreen(){
+        currentScreen.setEnabled(false);
+        mainScreen.setVisible(true);
+    }
+
     public static ArrayList<String> getMoviesTitles(){
         ArrayList<String> moviesTitles = new ArrayList<>();
 

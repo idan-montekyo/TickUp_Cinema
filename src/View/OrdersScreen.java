@@ -6,10 +6,13 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class OrdersScreen extends MoviesFrame {
     private JTextArea textArea = new JTextArea("", 6, 20);
+    JButton back = new JButton("Back to Main Menu");
 
     public OrdersScreen(){
         JLabel title = new JLabel("Orders", SwingConstants.CENTER);
@@ -28,16 +31,26 @@ public class OrdersScreen extends MoviesFrame {
         ArrayList<String> ordersPhones = Manager.getOrdersPhones();
 
         JPanel ordersPanel = new JPanel();
-        ordersPanel.setBounds(0, 80, 500, 403);
+        ordersPanel.setBounds(0, 80, 500, 373);
         ordersPanel.setBackground(backgroundColor);
 
         JPanel orderInfo = new JPanel();
-        orderInfo.setBounds(500, 80, 499, 403);
+        orderInfo.setBounds(500, 80, 499, 373);
         orderInfo.setBackground(backgroundColor);
 
         JPanel bottom = new JPanel();
-        bottom.setBounds(0, 450, 999, 80);
+        bottom.setBounds(0, 450, 999, 110);
         bottom.setBackground(backgroundColor);
+
+        back.setBounds(350, 480, 299, 50);
+        back.setFont(new Font("Tahoma", Font.BOLD, 22));;
+        back.setBackground(buttonColor);
+        back.setForeground(textColor);
+        back.setFocusable(false);
+        back.setHorizontalAlignment(SwingConstants.CENTER);
+        back.setVerticalAlignment(SwingConstants.CENTER);
+
+        bottom.add(back);
 
         JList list = new JList(ordersPhones.toArray());
         list.setBackground(buttonColor);
@@ -74,6 +87,12 @@ public class OrdersScreen extends MoviesFrame {
                 int selectedOrder = source.getSelectedIndex();
                 String content = Manager.getOrderInfo(selectedOrder);
                 textArea.setText(content);
+            }
+        });
+
+        back.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                Manager.backToMainScreen();
             }
         });
     }

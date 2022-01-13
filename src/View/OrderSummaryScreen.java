@@ -11,10 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class OrderSummaryScreen extends MoviesFrame {
-    private Order order;
-    private String phoneNumber;
     JTextField text = new JTextField(20);
     JButton next = new JButton("Place Order");
+    private Order order;
+    private String phoneNumber;
 
     public OrderSummaryScreen(Order order){
         this.order = order;
