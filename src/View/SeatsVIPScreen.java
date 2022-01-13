@@ -16,7 +16,7 @@ public class SeatsVIPScreen extends MoviesFrame {
     private static final Color screenColor = new Color(227, 213, 202);
     private static final Color availableSeat = new Color(42, 157, 143);
     private static final Color unavailableSeat = new Color(231, 111, 81);
-    private static final Color selectedSeat = new Color(33, 158, 188);
+    private static final Color selectedSeat = new Color(233, 196, 106);
 
     private JButton next = new JButton("Continue");
     private final int numOfTicketsNeeded;
