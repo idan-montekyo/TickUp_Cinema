@@ -17,8 +17,5 @@ public class Employee extends User{
         return this.personalNumber == personalNumber;
     }
 
-    // Access to user orders
-    public void viewUserOrders(Orders userOrders){
-        userOrders.displayOrders();
-    }
+
 }
