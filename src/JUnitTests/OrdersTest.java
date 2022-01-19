@@ -2,40 +2,62 @@ package JUnitTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import Model.Enums.EnumScreeningTime;
 import Model.Enums.EnumTheaterType;
+import Model.Enums.EnumWeekDays;
+import Model.MovieOrders.Order;
+import Model.MovieOrders.Orders;
+import Model.MoviesAndScreenings.Movie;
+import Model.MoviesAndScreenings.Screening;
+import Model.MoviesAndScreenings.ScreeningTime;
+import Model.MoviesAndScreenings.Tickets;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Model.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 public class OrdersTest {
-//    private Orders order = null;
-//    Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, "12:00");
-//    ArrayList<Screening> screeningsList = new ArrayList<> (Arrays.asList(screening));
-//    Movie movie = new Movie("Spiderman", 0, 100, screeningsList);
-//    UserOrder userOrder1 = new UserOrder("050-123-4567", movie, screening, 1,2,3);
-//    List<UserOrder> orders_list = new ArrayList<>(Arrays.asList(userOrder1));
-
+    private Order order = null;
+    private Orders orders = null;
+    ScreeningTime st = new ScreeningTime(EnumWeekDays.SUNDAY, EnumScreeningTime.FOUR);
+    Screening screening = new Screening(EnumTheaterType.THEATER_STANDARD, 1, st);
+    ArrayList<Screening> screeningsList = new ArrayList<> (Arrays.asList(screening));
+    Movie movie = new Movie("Spiderman", 0, null, "", 90, screeningsList);
+    Tickets tickets = new Tickets();
 
     @BeforeEach
-//    void setUp()
-//    {
-//        order = new Orders(orders_list);
-//    }
+    void setUp()
+    {
+        order = new Order();
+        orders = new Orders();
+        tickets.setNumOfTypeTickets("Standard", 3);
+        tickets.setNumOfTypeTickets("Student", 5);
+        order.setUserPhoneNumber("0505050505");
+        order.setMovie(movie);
+        order.setScreening(screening);
+        order.setTickets(tickets);
+        order.setTotalBill();
+    }
 
-    // Test for creating new orders
+    // Test for Order class's assignments.
     @Test
     void createNewOrder() {
-//        Screening screening2 = new Screening(EnumTheaterType.THEATER_VIP, 5, "16:00");
-//        ArrayList<Screening> screeningsList2 = new ArrayList<> (Arrays.asList(screening2));
-//        Movie movie2 = new Movie("Harry Potter", 3, 150, screeningsList2);
-//        UserOrder userOrder2 = new UserOrder("050-145-9999", movie2, screening2, 4,0,1);
-//        order.addOrder(userOrder2);
-//        assertEquals(2, order.GetNumOfOrders());
+        assertEquals("0505050505", order.getUserPhoneNumber());
+        assertEquals(movie, order.getMovie());
+        assertEquals(screening, order.getScreening());
+        assertEquals(tickets, order.getTickets());
+        assertEquals(240, order.getTotalBill());
+    }
+
+    // Test for Orders class's addOrder method.
+    @Test
+    void addOrderToOrdersTest() {
+        assertEquals(0, orders.getNumOfOrders());
+
+        orders.addOrder(order);
+        assertEquals(1, orders.getNumOfOrders());
     }
 }

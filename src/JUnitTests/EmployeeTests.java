@@ -15,16 +15,15 @@ public class EmployeeTests {
         employee = new Employee(1234);
     }
 
-    // Test for success login
+    // Test for successful login
     @Test
     void validLogin() {
-        assertEquals(true, employee.login(1234));
+        assertTrue(employee.login(1234));
     }
 
     // Test for unsuccessful login
     @Test
     void InValidLogin() {
-        assertEquals(false, employee.login(1234));
-        assertEquals(false, employee.login(1254));
+        assertFalse(employee.login(1243));
     }
 }

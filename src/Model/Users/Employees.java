@@ -5,7 +5,7 @@ import Model.Users.Employee;
 import java.util.ArrayList;
 
 public class Employees {
-    private ArrayList<Employee> employees;
+    private final ArrayList<Employee> employees;
 
     public Employees(){
         employees = new ArrayList<>();

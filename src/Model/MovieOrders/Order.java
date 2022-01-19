@@ -7,8 +7,8 @@ import Model.MoviesAndScreenings.Tickets;
 // Crate a class for a single order.
 public class Order {
     // Defines
-    private static final double STUDENT_UNIFORM_DISCOUNT = 0.4;
-    private static final double VETERAN_DISCOUNT = 0.6;
+    private static final double STUDENT_UNIFORM_DISCOUNT = 0.6;
+    private static final double VETERAN_DISCOUNT = 0.4;
 
     // Fields
     private String userPhoneNumber;
@@ -62,7 +62,7 @@ public class Order {
     }
 
     public void setTotalBill(){
-        this.totalBill = getBill();
+        this.totalBill = calculateBill();
     }
 
     public void setSeats(String seats){
@@ -71,7 +71,7 @@ public class Order {
 
 
     // Calculate total price for specific order
-    public int getBill() {
+    public int calculateBill() {
         int bill = 0;
         int originalPrice = this.screening.getTheater().getPrice();
         bill += this.tickets.getNumOfTypeTickets("Standard") * originalPrice;
@@ -80,12 +80,6 @@ public class Order {
         bill += this.tickets.getNumOfTypeTickets("Policeman/Soldier") * originalPrice * STUDENT_UNIFORM_DISCOUNT;
 
         return bill;
-    }
-
-    public boolean phoneNumberValidation(String phone){
-        if (!phone.startsWith("05") && phone.length() != 10)
-            return false;
-        return true;
     }
 
     @Override

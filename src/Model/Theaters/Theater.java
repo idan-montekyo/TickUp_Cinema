@@ -62,8 +62,6 @@ public abstract class Theater {
             }
         }
 
-        if (numOfSelectedTickets > numOfAvailableTickets)
-            return false;
-        return true;
+        return numOfSelectedTickets <= numOfAvailableTickets;
     }
 }

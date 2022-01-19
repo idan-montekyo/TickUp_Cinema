@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 // Create a class for a specific movie
 public class Movie {
-
     // fields
     private final String movieName;
     private final int serialNumber;

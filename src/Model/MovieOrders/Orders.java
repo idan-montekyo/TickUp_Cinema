@@ -19,10 +19,9 @@ public class Orders {
         return allOrders;
     }
 
-    public int GetNumOfOrders(){
+    public int getNumOfOrders(){
         return this.allOrders.size();
     }
-
 
     // Add a new order to allOrders list
     public void addOrder(Order order) {
@@ -45,5 +44,4 @@ public class Orders {
     public String toString() {
         return super.toString();
     }
-
 }

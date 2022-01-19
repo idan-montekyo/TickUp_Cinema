@@ -13,6 +13,7 @@ import Model.Theaters.MultiDimTheater;
 import Model.Theaters.Theater;
 import Model.Theaters.VipTheater;
 import Model.Users.Employees;
+import Model.Users.User;
 import View.*;
 import View.SeatsMultiDimScreen;
 import View.SeatsRegularScreen;
@@ -30,6 +31,7 @@ public class Manager {
     private static Orders orders;
     private static OrderBuilder orderBuilder;
     private static Order currentOrder;
+    private static User user;
 
     public Manager(){
         employees = DemoData.initializeDemoEmployees();
@@ -191,11 +193,14 @@ public class Manager {
     }
 
     public static void PlaceOrder(String phoneNumber){
-        if (!currentOrder.phoneNumberValidation(phoneNumber)){
+        user = new User();
+
+        if (!user.phoneNumberValidation(phoneNumber)){
             String message = "The phone number is invalid.";
             JOptionPane.showMessageDialog(currentScreen, message, "Error", JOptionPane.ERROR_MESSAGE);
         }
         else {
+            user.setPhoneNumber(phoneNumber);
             currentOrder.setUserPhoneNumber(phoneNumber);
             orders.addOrder(currentOrder);
 

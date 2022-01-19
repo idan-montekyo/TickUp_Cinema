@@ -19,7 +19,11 @@ public class TicketTests {
     // Test for selecting amount of tickets
     @Test
     void testAmountOfTickets() {
-        ticket.setNumOfTypeTickets("Student", 3);
-        assertEquals(3, ticket.getNumOfTypeTickets("Student"));
+        ticket.setNumOfTypeTickets("Standard", 1);
+        ticket.setNumOfTypeTickets("Student", 2);
+        ticket.setNumOfTypeTickets("Veteran", 3);
+        assertEquals(1, ticket.getNumOfTypeTickets("Standard"));
+        assertEquals(2, ticket.getNumOfTypeTickets("Student"));
+        assertEquals(3, ticket.getNumOfTypeTickets("Veteran"));
     }
 }

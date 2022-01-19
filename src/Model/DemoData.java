@@ -50,7 +50,7 @@ public class DemoData {
         spidermanScreenings.add(spiderman4);
 
         Movie m_Spiderman = new Movie("Spider-Man: No Way Home", 0,
-                "src\\View\\images\\movie1.jpg",
+                "src\\View\\images\\spidermanPoster.jpg",
                 "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
                 148,
                 spidermanScreenings);
@@ -62,7 +62,7 @@ public class DemoData {
         hangoverScreenings.add(hangover1);
 
         Movie m_Hangover = new Movie("The Hangover", 1,
-                "src\\View\\images\\movie2.jpg",
+                "src\\View\\images\\hangoverPoster.jpg",
                 "Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.",
                 100,
                 hangoverScreenings);
@@ -78,7 +78,7 @@ public class DemoData {
         lordoftheringsScreenings.add(lordoftherings3);
 
         Movie m_LordOfTheRings = new Movie("The Lord of the Rings", 2,
-                "src\\View\\images\\movie3.jpg",
+                "src\\View\\images\\lordRingsPoster.jpg",
                 "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
                 178,
                 lordoftheringsScreenings);
@@ -92,7 +92,7 @@ public class DemoData {
         harrypotterScreenings.add(harrypotter2);
 
         Movie m_HarryPotter = new Movie("Harry Potter and the Prisoner of Azkaban", 3,
-                "src\\View\\images\\movie4.jpg",
+                "src\\View\\images\\harry3Poster.jpg",
                 "Harry Potter, Ron and Hermione return to Hogwarts School of Witchcraft and Wizardry for their third year of study, where they delve into the mystery surrounding an escaped prisoner who poses a dangerous threat to the young wizard.",
                 142,
                 harrypotterScreenings);
@@ -106,7 +106,7 @@ public class DemoData {
         piratesofthecaribbeanScreenings.add(piratesofthecaribbean2);
 
         Movie m_PiratesOfTheCaribbean = new Movie("Pirates of the Caribbean", 4,
-                "src\\View\\images\\movie1.jpg",
+                "src\\View\\images\\piratesPoster.jpg",
                 "Blacksmith Will Turner teams up with eccentric pirate \"Captain\" Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
                 143,
                 piratesofthecaribbeanScreenings);

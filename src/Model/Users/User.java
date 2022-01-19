@@ -9,8 +9,27 @@ import Model.MoviesAndScreenings.Tickets;
 import java.util.List;
 
 public class User {
+    // Fields
+    private String phoneNumber;
+    String regex = "05[0-9]+";
+
     // Constructor
     public User() {}
+
+    // Getter
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    // Setter
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    // Phone number validation
+    public boolean phoneNumberValidation(String phone) {
+        return phone.length() == 10 && phone.matches(regex);
+    }
 
     // Display all movies
     public void displayMoviesForSelection(Movies movies) {
@@ -28,7 +47,7 @@ public class User {
             case "Pirates Of The Caribbean" -> x = 4;
         }
 
-        if(x > 0) {
+        if(x >= 0) {
             return movieList.getAllMovies().get(x);
         } else {
             return null;
@@ -41,7 +60,7 @@ public class User {
     }
 
     // Select amount of tickets of: Standard, Student and Veteran - Up to 8 tickets
-    public Tickets selectTicketsUpToEight(int standard, int student, int veteran) {
+    public Tickets selectTicketsUpToEight(int standard, int student, int veteran, int other) {
         int sum = standard + student + veteran;
         if(sum > 8) {
             return null;
@@ -50,6 +69,7 @@ public class User {
             ticket.setNumOfTypeTickets("Standard", standard);
             ticket.setNumOfTypeTickets("Student", student);
             ticket.setNumOfTypeTickets("Veteran", veteran);
+            ticket.setNumOfTypeTickets("Policeman/Soldier", other);
 
             return ticket;
         }
@@ -69,6 +89,4 @@ public class User {
         }
         return true;
     }
-
-    // public placeOrder()
 }

@@ -5,7 +5,7 @@ import Model.MovieOrders.Orders;
 public class Employee extends User{
 
     // Fields
-    private int personalNumber;
+    private final int personalNumber;
 
     // Constructor
     public Employee(int personalNumber){
@@ -14,19 +14,11 @@ public class Employee extends User{
 
     // Check if Employee' personal number and password are valid
     public boolean login(int personalNumber){
-        if(this.personalNumber == personalNumber){
-            return true;
-        }
-        return false;
+        return this.personalNumber == personalNumber;
     }
 
     // Access to user orders
     public void viewUserOrders(Orders userOrders){
         userOrders.displayOrders();
     }
-
-
-
-    // updateMovie - At this stage we decided to create a default list of movies...
-
 }

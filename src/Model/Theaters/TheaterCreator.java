@@ -8,22 +8,12 @@ public class TheaterCreator {
     private static Theater theater;
 
     public static Theater TheaterCreator(EnumTheaterType theaterType, int theaterNumber){
-        switch (theaterType){
-            case THEATER_STANDARD:
-                theater = new StandardTheater(theaterNumber);
-                break;
-            case THEATER_VIP:
-                theater = new VipTheater(theaterNumber);
-                break;
-            case THEATER_IMAX:
-                theater = new MultiDimTheater(theaterNumber, EnumDimensions.IMAX);
-                break;
-            case THEATER_THREE_D:
-                theater = new MultiDimTheater(theaterNumber, EnumDimensions.ThreeD);
-                break;
-            case THEATER_FOUR_D:
-                theater = new MultiDimTheater(theaterNumber, EnumDimensions.FourD);
-                break;
+        switch (theaterType) {
+            case THEATER_STANDARD -> theater = new StandardTheater(theaterNumber);
+            case THEATER_VIP -> theater = new VipTheater(theaterNumber);
+            case THEATER_IMAX -> theater = new MultiDimTheater(theaterNumber, EnumDimensions.IMAX);
+            case THEATER_THREE_D -> theater = new MultiDimTheater(theaterNumber, EnumDimensions.ThreeD);
+            case THEATER_FOUR_D -> theater = new MultiDimTheater(theaterNumber, EnumDimensions.FourD);
         }
 
         return theater;

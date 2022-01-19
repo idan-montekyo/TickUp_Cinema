@@ -26,7 +26,6 @@ public class Screening {
         }
     }
 
-
     // Getters
     public Theater getTheater() {
         return theater;
@@ -35,7 +34,6 @@ public class Screening {
     public ScreeningTime getScreeningTime() {
         return screeningTime;
     }
-
 
     @Override
     public String toString() {
