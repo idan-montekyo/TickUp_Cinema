@@ -1,7 +1,8 @@
 package Model.Theaters;
 
-// Crate a class for the VIP theater.
+// Crate a class for the VIP theater
 public class VipTheater extends StandardTheater {
+    // Defines
     private static final int numRows = 3;
     private static final int numCols = 5;
     private static final int price = 100;

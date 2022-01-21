@@ -1,14 +1,9 @@
 package Model.MoviesAndScreenings;
 
-import Model.Enums.EnumScreeningTime;
-import Model.Enums.EnumTheaterType;
-import Model.Enums.EnumWeekDays;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// Create a class that holds all the movies.
+// Class that holds all the movies
 public class Movies {
     // Fields
     private final List<Movie> allMovies;
@@ -17,7 +12,6 @@ public class Movies {
     public Movies(List<Movie> allMovies) {
         this.allMovies = allMovies;
     }
-
 
     // Getter
     public List<Movie> getAllMovies() {

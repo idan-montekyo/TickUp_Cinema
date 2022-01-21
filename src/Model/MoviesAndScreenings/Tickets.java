@@ -1,16 +1,13 @@
 package Model.MoviesAndScreenings;
 
-import Model.Enums.EnumSeats;
-import Model.Theaters.Theater;
-
 import java.util.HashMap;
 
-// Crate a class for holding all four kinds of tickets.
+// Class for holding all four kinds of tickets
 public class Tickets {
     // Fields
     private HashMap<String, Integer> ticketsQuantity;
 
-    //Constructor - Initialize 3 types of tickets
+    //Constructor - Initialize 4 types of tickets and their quantities
     public Tickets() {
         this.ticketsQuantity = new HashMap<>();
         this.ticketsQuantity.put("Standard", 0);
@@ -30,13 +27,14 @@ public class Tickets {
         this.ticketsQuantity.put(type, numOfTickets);
     }
 
-    // Display all quantity of all types of ticket at specific order
+    // Display all quantities of all types of ticket at specific order
     public void displayAllNumOfTypeTickets() {
         for (String i : this.ticketsQuantity.keySet()) {
             System.out.println("key: " + i + " value: " + this.ticketsQuantity.get(i));
         }
     }
 
+    // Returns the sum of the tickets quantities
     private int totalNumberOfTickets(){
         int total = 0;
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// Crate a class that holds all user-orders.
+// Create a class that holds all orders
 public class Orders {
     // Fields
     private final ArrayList<Order> allOrders;
@@ -22,6 +22,7 @@ public class Orders {
     public int getNumOfOrders(){
         return this.allOrders.size();
     }
+
 
     // Add a new order to allOrders list
     public void addOrder(Order order) {

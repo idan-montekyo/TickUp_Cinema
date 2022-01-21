@@ -2,9 +2,8 @@ package Model.Theaters;
 
 import Model.Enums.EnumSeats;
 
-// Create an abstract class for theater.
+// Create an abstract class for theater
 public abstract class Theater {
-
     //Fields
     private final int numRows;
     private final int numCols;
@@ -47,11 +46,12 @@ public abstract class Theater {
         seats[row-1][col-1] = seatStatus;
     }
 
-
+    // Set seat status to SELECTED
     public void selectSeat(int row, int col){
         seats[row-1][col-1] = EnumSeats.SELECTED;
     }
 
+    // Returns if there is enough empty seats in the theater
     public boolean isValidNumberOfTickets(int numOfSelectedTickets){
         int numOfAvailableTickets = 0;
 

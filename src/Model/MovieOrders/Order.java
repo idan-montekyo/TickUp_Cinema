@@ -91,5 +91,4 @@ public class Order {
                 "\n\nSelected seats: " + selectedSeats +
                 "\n\n\nTotal bill: " + totalBill;
     }
-
 }

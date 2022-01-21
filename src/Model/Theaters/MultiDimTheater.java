@@ -2,7 +2,7 @@ package Model.Theaters;
 
 import Model.Enums.EnumDimensions;
 
-// Crate a class for the Multi dimension's theater.
+// Create a class for the Multi dimension's theater
 public class MultiDimTheater extends StandardTheater {
     // Defines
     private static final int numRows = 5;
@@ -18,11 +18,10 @@ public class MultiDimTheater extends StandardTheater {
         this.dimension = dim;
     }
 
-    // Getters
+    // Getter
     public EnumDimensions getDimension() {
         return dimension;
     }
-
 
     @Override
     public String toString() {

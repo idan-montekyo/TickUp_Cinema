@@ -5,7 +5,7 @@ import Model.MoviesAndScreenings.Screening;
 import Model.MoviesAndScreenings.Tickets;
 
 public class OrderBuilder {
-    // Builder design pattern for UserOrder object:
+    // Builder design pattern for Order object:
     private Order order;
 
     public OrderBuilder(){

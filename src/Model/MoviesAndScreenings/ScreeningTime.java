@@ -3,10 +3,12 @@ package Model.MoviesAndScreenings;
 import Model.Enums.EnumScreeningTime;
 import Model.Enums.EnumWeekDays;
 
+// Class that represents the screening time: day + starting hour
 public class ScreeningTime {
     private EnumWeekDays day;
     private EnumScreeningTime time;
 
+    // Constructor
     public ScreeningTime(EnumWeekDays day, EnumScreeningTime time){
         this.day = day;
         this.time = time;

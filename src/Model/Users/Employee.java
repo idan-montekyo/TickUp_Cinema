@@ -1,9 +1,6 @@
 package Model.Users;
 
-import Model.MovieOrders.Orders;
-
 public class Employee extends User{
-
     // Fields
     private final int personalNumber;
 
@@ -12,10 +9,8 @@ public class Employee extends User{
         this.personalNumber = personalNumber;
     }
 
-    // Check if Employee' personal number and password are valid
+    // Check if Employee's personal number is valid
     public boolean login(int personalNumber){
         return this.personalNumber == personalNumber;
     }
-
-
 }

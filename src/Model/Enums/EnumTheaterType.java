@@ -1,6 +1,6 @@
 package Model.Enums;
 
-// Crate Enum for existing kinds of theaters at the cinema.
+// Create Enum for existing kinds of theaters at the cinema
 public enum EnumTheaterType {
     THEATER_STANDARD,
     THEATER_THREE_D,

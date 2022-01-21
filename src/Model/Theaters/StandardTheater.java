@@ -1,6 +1,6 @@
 package Model.Theaters;
 
-// Crate a class for the standard theater.
+// Create a class for the standard theater
 public class StandardTheater extends Theater {
     // Defines
     private static final int numRows = 4;

@@ -17,8 +17,9 @@ import Model.Users.Employees;
 import java.util.ArrayList;
 import java.util.List;
 
+// Class that creates demo data for the app
 public class DemoData {
-
+    // Demo employees who have permissions to view all orders
     public static Employees initializeDemoEmployees(){
         Employees employees = new Employees();
 
@@ -35,6 +36,7 @@ public class DemoData {
         return employees;
     }
 
+    // Demo movies for movies list + their screenings and theaters
     public static Movies initializeDemoMovies(){
         ArrayList<ScreeningTime> screeningTimes = initializeDemoScreeningTimes();
 
@@ -122,6 +124,7 @@ public class DemoData {
         return (new Movies(m_list));
     }
 
+    // Demo screenings for the demo movies
     private static ArrayList<ScreeningTime> initializeDemoScreeningTimes(){
         ArrayList<ScreeningTime> screeningTimes = new ArrayList<>();
 
@@ -137,6 +140,7 @@ public class DemoData {
         return screeningTimes;
     }
 
+    // Demo orders for orders list (includes taken seats)
     public static Orders initializeDemoOrders(Movies movies){
         OrderBuilder builder = new OrderBuilder();
 

@@ -1,9 +1,7 @@
 package Model.Users;
 
-import Model.Enums.EnumSeats;
 import Model.MoviesAndScreenings.Movie;
 import Model.MoviesAndScreenings.Movies;
-import Model.MoviesAndScreenings.Screening;
 import Model.MoviesAndScreenings.Tickets;
 
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
 public class User {
     // Fields
     private String phoneNumber;
-    String regex = "05[0-9]+";
+    private String regex = "05[0-9]+";
 
     // Constructor
     public User() {}
