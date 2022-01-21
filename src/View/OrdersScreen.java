@@ -10,11 +10,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+// Screen that holds all orders data
 public class OrdersScreen extends MoviesFrame {
+    // Fields
     private JTextArea textArea = new JTextArea("", 6, 20);
     JButton back = new JButton("Back to Main Menu");
 
     public OrdersScreen(){
+        // Screen title
         JLabel title = new JLabel("Orders", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 40));
         title.setBounds(0, 0, 999, 60);
@@ -28,6 +31,7 @@ public class OrdersScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
+        // List of all orders (from controller)
         ArrayList<String> ordersPhones = ProgramManager.getOrdersPhones();
 
         JPanel ordersPanel = new JPanel();
@@ -42,6 +46,7 @@ public class OrdersScreen extends MoviesFrame {
         bottom.setBounds(0, 450, 999, 110);
         bottom.setBackground(backgroundColor);
 
+        // Button to go back to the main screen
         back.setBounds(350, 480, 299, 50);
         back.setFont(new Font("Tahoma", Font.BOLD, 22));;
         back.setBackground(buttonColor);
@@ -60,6 +65,7 @@ public class OrdersScreen extends MoviesFrame {
         JScrollPane listScroller = new JScrollPane(list);
         listScroller.setPreferredSize(new Dimension(400, 350));
 
+        // Selected order content: movie, theater, screening time, seats, tickets and bill
         textArea.setFont(new Font("Tahoma", Font.PLAIN, 16));
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
@@ -81,6 +87,7 @@ public class OrdersScreen extends MoviesFrame {
         this.add(orderInfo);
         this.add(bottom);
 
+        // Orders list listener
         list.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 JList source = (JList)event.getSource();
@@ -90,6 +97,7 @@ public class OrdersScreen extends MoviesFrame {
             }
         });
 
+        // Back to main screen button listener
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 ProgramManager.backToMainScreen();

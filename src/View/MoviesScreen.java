@@ -10,15 +10,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+// Screens with a list of all movies in the cinema and their images
 public class MoviesScreen extends MoviesFrame {
-    // Frame fields
+    // Fields
     private JButton next = new JButton("Choose Movie");
     private ImageIcon movieImage = new ImageIcon();
     private JLabel image = new JLabel();
-    // More fields for controller
+
     private int selectedMovie;
 
     public MoviesScreen(){
+        // Screen title
         JLabel title = new JLabel("MOVIES", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 40));
         title.setBounds(0, 0, 999, 60);
@@ -32,6 +34,7 @@ public class MoviesScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
+        // Movies list (from the controller)
         ArrayList<String> mv = ProgramManager.getMoviesTitles();
 
         JPanel contentPanel = new JPanel();
@@ -55,10 +58,12 @@ public class MoviesScreen extends MoviesFrame {
         JScrollPane listScroller = new JScrollPane(list);
         listScroller.setPreferredSize(new Dimension(400, 330));
 
+        // Selected movie's image
         image.setHorizontalAlignment(SwingConstants.LEFT);
         image.setVerticalAlignment(SwingConstants.CENTER);
         imagePanel.add(image);
 
+        // Button to continue to the next screen
         next.setBounds(460, 430, 99, 50);
         next.setFont(new Font("Tahoma", Font.BOLD, 25));;
         next.setBackground(buttonColor);
@@ -75,12 +80,14 @@ public class MoviesScreen extends MoviesFrame {
         this.add(imagePanel);
         this.add(bottom);
 
+        // Next screen button listener
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 ProgramManager.switchToMovieInfoWindow(selectedMovie);
             }
         });
 
+        // Movies list listener
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent event) {
@@ -97,6 +104,7 @@ public class MoviesScreen extends MoviesFrame {
         });
     }
 
+    // Save the selected movie index in the list
     private void setSelectedMovie(int movieIndex){
         this.selectedMovie = movieIndex;
     }

@@ -9,7 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// VIP theater top view Screen
 public class SeatsVIPScreen extends MoviesFrame {
+    // Fields and defines
     private static final Color screenColor = new Color(227, 213, 202);
     private static final Color availableSeat = new Color(42, 157, 143);
     private static final Color unavailableSeat = new Color(231, 111, 81);
@@ -22,10 +24,12 @@ public class SeatsVIPScreen extends MoviesFrame {
     private JButton[][] seats = new JButton[3][5];
 
     public SeatsVIPScreen(int numOfTickets, Theater selectedTheater) {
+        // Selected theater and tickets quantity from controller
         this.numOfTicketsNeeded = numOfTickets;
         this.numOfTicketsSelected = 0;
         this.selectedTheater = selectedTheater;
 
+        // Screen title
         JLabel title = new JLabel("Choose Seats", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 30));
         title.setBounds(0, 0, 999, 60);
@@ -55,8 +59,10 @@ public class SeatsVIPScreen extends MoviesFrame {
         spacer3.setBounds(0, 80, 999, 30);
         spacer3.setBackground(backgroundColor);
 
+        // Seats statuses in the theater
         EnumSeats[][] seatsStatuses = selectedTheater.getSeats();
 
+        // Seats buttons drawing
         final int w = 40;
         final int h = 60;
 
@@ -69,6 +75,7 @@ public class SeatsVIPScreen extends MoviesFrame {
                 b.setBounds(x + j * 80, y + i * 80, w, h);
                 if (seatsStatuses[i][j] == EnumSeats.AVAILABLE) {
                     b.setBackground(availableSeat);
+                    // Seat listener
                     b.addActionListener(new SeatButtonListener(i, j) {
                         public void actionPerformed(ActionEvent event) {
                             JButton currentButton = (JButton) event.getSource();
@@ -95,9 +102,9 @@ public class SeatsVIPScreen extends MoviesFrame {
             }
         }
 
+        // Continue to next screen button
         next.setBounds(0, 433, 80, 50);
         next.setFont(new Font("Tahoma", Font.BOLD, 22));
-        ;
         next.setBackground(buttonColor);
         next.setForeground(textColor);
         next.setFocusable(false);
@@ -119,7 +126,7 @@ public class SeatsVIPScreen extends MoviesFrame {
         this.add(theater);
         this.add(bottom);
 
-
+        // Next screen button listener
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 seatsConfirmation();
@@ -127,10 +134,12 @@ public class SeatsVIPScreen extends MoviesFrame {
         });
     }
 
+    // Sends to the controller the theater dimension and theater itself
     private void seatsConfirmation() {
         ProgramManager.switchToOrderDetailsAndConfirmation(selectedTheater, 3, 5);
     }
 
+    // Updates seat status and color
     private void updateSeat(JButton button, int row, int col) {
         EnumSeats seatStatus = selectedTheater.getSeats()[row][col];
 

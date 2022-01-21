@@ -2,21 +2,24 @@ package View;
 
 import Controller.ProgramManager;
 import Model.MoviesAndScreenings.Screening;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
+// Screen that shows 4 types of tickets with their quantities
 public class TicketsScreen extends MoviesFrame {
+    // Fields
     JButton next = new JButton("Continue");
     Screening screening;
     private int[] tickets = {0, 0, 0, 0};
 
     public TicketsScreen(Screening selectedScreening){
+        // Selected screening from controller
         this.screening = selectedScreening;
 
+        // Screen title
         JLabel title = new JLabel("Choose Tickets", SwingConstants.CENTER);
         title.setFont(new Font("Tahoma", Font.BOLD, 22));
         title.setBounds(0, 0, 999, 60);
@@ -30,13 +33,16 @@ public class TicketsScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
+        // Possible quantity of each ticket type
         String[] numberOfTickets = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
+        // Tickets quantities combo boxes
         JComboBox ticket1 = new JComboBox(numberOfTickets);
         JComboBox ticket2 = new JComboBox(numberOfTickets);
         JComboBox ticket3 = new JComboBox(numberOfTickets);
         JComboBox ticket4 = new JComboBox(numberOfTickets);
 
+        // Labels with the tickets types names
         JLabel label1 = new JLabel("Regular ticket");
         label1.setForeground(textColor);
         label1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -61,6 +67,7 @@ public class TicketsScreen extends MoviesFrame {
         label4.setHorizontalAlignment(SwingConstants.LEFT);
         label4.setVerticalAlignment(SwingConstants.CENTER);
 
+        // Spacers for beautification
         JPanel spacer1 = new JPanel();
         spacer1.setBounds(0, 150, 300, 200);
         spacer1.setBackground(backgroundColor);
@@ -113,6 +120,7 @@ public class TicketsScreen extends MoviesFrame {
         o4.add(ticket4);
         o4.setBackground(backgroundColor);
 
+        // Button to continue to the next screen
         next.setBounds(450, 430, 80, 50);
         next.setFont(new Font("Tahoma", Font.BOLD, 22));;
         next.setBackground(buttonColor);
@@ -145,6 +153,7 @@ public class TicketsScreen extends MoviesFrame {
         this.add(o4);
         this.add(bottom);
 
+        // Tickets quantities combo box listeners
         ticket1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent event) {
                 JComboBox source = (JComboBox)event.getSource();
@@ -185,6 +194,7 @@ public class TicketsScreen extends MoviesFrame {
             }
         });
 
+        // Next screen button listeners
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 ProgramManager.IsValidNumberOfTickets(screening, tickets);
