@@ -31,10 +31,6 @@ public class User {
         return phone.length() == 10 && phone.matches(regex);
     }
 
-    // Display all movies
-    public void displayMoviesForSelection(Movies movies) {
-        movies.displayMovies();
-    }
 
     // User movie selection
     public Movie selectMovieByName(Movies movieList, String movieName) {
@@ -54,10 +50,6 @@ public class User {
         }
     }
 
-    // return an array of all screening times for a specific movie
-    public List<Screening> selectScreening(Movie m) {
-        return m.getScreeningsTime();
-    }
 
     // Select amount of tickets of: Standard, Student and Veteran - Up to 8 tickets
     public Tickets selectTicketsUpToEight(int standard, int student, int veteran, int other) {
@@ -73,20 +65,5 @@ public class User {
 
             return ticket;
         }
-    }
-
-    // Select seats for a specific screening (The matrix represent: first col - number of row, second col - number of col; each seat is representing by a row in the matrix
-    public boolean selectUserSeats(Screening screening, int[][] userSelection) {
-
-        for(int row = 0; row < userSelection.length; row++){
-            if(screening.getTheater().getSeats()[userSelection[row][0]][userSelection[row][1]].equals(EnumSeats.TAKEN)){
-                return false;
-            }
-        }
-
-        for(int row = 0; row < userSelection.length; row++){
-            screening.getTheater().selectSeat(userSelection[row][0], userSelection[row][1]);
-        }
-        return true;
     }
 }
