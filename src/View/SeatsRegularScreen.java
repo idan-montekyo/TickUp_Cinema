@@ -1,16 +1,13 @@
 package View;
 
-import Controller.Manager;
+import Controller.ProgramManager;
 import Model.Enums.EnumSeats;
 import Model.Theaters.Theater;
-import View.MoviesFrame;
-import View.OrderSummaryScreen;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class SeatsRegularScreen extends MoviesFrame {
     private static final Color screenColor = new Color(227, 213, 202);
@@ -130,7 +127,7 @@ public class SeatsRegularScreen extends MoviesFrame {
     }
 
     private void seatsConfirmation() {
-        Manager.switchToOrderDetailsAndConfirmation(selectedTheater, 4, 5);
+        ProgramManager.switchToOrderDetailsAndConfirmation(selectedTheater, 4, 5);
     }
 
     private void updateSeat(JButton button, int row, int col) {

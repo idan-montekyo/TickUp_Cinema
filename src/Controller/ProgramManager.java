@@ -23,7 +23,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Manager {
+public class ProgramManager {
     private static MainScreen mainScreen = new MainScreen();
     private static MoviesFrame currentScreen;
     private static Employees employees;
@@ -33,7 +33,7 @@ public class Manager {
     private static Order currentOrder;
     private static User user;
 
-    public Manager(){
+    public ProgramManager(){
         employees = DemoData.initializeDemoEmployees();
         movies = DemoData.initializeDemoMovies();
         orders = DemoData.initializeDemoOrders(movies);

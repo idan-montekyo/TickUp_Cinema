@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Manager;
+import Controller.ProgramManager;
 import Model.MoviesAndScreenings.Screening;
 
 import javax.swing.*;
@@ -16,10 +16,10 @@ public class MovieInfo extends MoviesFrame {
     Screening selectedScreening;
 
     public MovieInfo(int movieIndex){
-        String movieNameStr = Manager.getMovieName(movieIndex);
-        String movieImagePath = Manager.getMoviePoster(movieIndex);
-        ArrayList<Screening> screeningsList = Manager.getMovieScreenings(movieIndex);
-        String content = Manager.getMovieSummary(movieIndex);
+        String movieNameStr = ProgramManager.getMovieName(movieIndex);
+        String movieImagePath = ProgramManager.getMoviePoster(movieIndex);
+        ArrayList<Screening> screeningsList = ProgramManager.getMovieScreenings(movieIndex);
+        String content = ProgramManager.getMovieSummary(movieIndex);
 
         JLabel movieName = new JLabel(movieNameStr, SwingConstants.CENTER);
         movieName.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -109,7 +109,7 @@ public class MovieInfo extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                                       Manager.switchToTicketsWindow(selectedScreening);
+                                       ProgramManager.switchToTicketsWindow(selectedScreening);
                                    }
         });
 

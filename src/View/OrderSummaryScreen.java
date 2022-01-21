@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Manager;
+import Controller.ProgramManager;
 import Model.MovieOrders.Order;
 
 import javax.swing.*;
@@ -129,7 +129,7 @@ public class OrderSummaryScreen extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                Manager.PlaceOrder(phoneNumber);
+                ProgramManager.PlaceOrder(phoneNumber);
             }
         });
     }

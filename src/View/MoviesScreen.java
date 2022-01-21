@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Manager;
+import Controller.ProgramManager;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -32,7 +32,7 @@ public class MoviesScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
-        ArrayList<String> mv = Manager.getMoviesTitles();
+        ArrayList<String> mv = ProgramManager.getMoviesTitles();
 
         JPanel contentPanel = new JPanel();
         contentPanel.setBounds(0, 80, 700, 370);
@@ -77,7 +77,7 @@ public class MoviesScreen extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                Manager.switchToMovieInfoWindow(selectedMovie);
+                ProgramManager.switchToMovieInfoWindow(selectedMovie);
             }
         });
 
@@ -89,7 +89,7 @@ public class MoviesScreen extends MoviesFrame {
                 JList source = (JList)event.getSource();
                 int selectedMovie = source.getSelectedIndex();
                 // Show selected movie's poster
-                String imagePath = Manager.getMoviePoster(selectedMovie);
+                String imagePath = ProgramManager.getMoviePoster(selectedMovie);
                 image.setIcon(new ImageIcon(imagePath));
                 // Save movie's name and path
                 setSelectedMovie(selectedMovie);

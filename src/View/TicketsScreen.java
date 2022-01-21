@@ -1,8 +1,7 @@
 package View;
 
-import Controller.Manager;
+import Controller.ProgramManager;
 import Model.MoviesAndScreenings.Screening;
-import Model.MoviesAndScreenings.Tickets;
 
 import javax.swing.*;
 import java.awt.*;
@@ -188,7 +187,7 @@ public class TicketsScreen extends MoviesFrame {
 
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                Manager.IsValidNumberOfTickets(screening, tickets);
+                ProgramManager.IsValidNumberOfTickets(screening, tickets);
             }
         });
     }

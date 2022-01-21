@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Manager;
+import Controller.ProgramManager;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -28,7 +28,7 @@ public class OrdersScreen extends MoviesFrame {
         top.add(title);
         top.setBackground(backgroundColor);
 
-        ArrayList<String> ordersPhones = Manager.getOrdersPhones();
+        ArrayList<String> ordersPhones = ProgramManager.getOrdersPhones();
 
         JPanel ordersPanel = new JPanel();
         ordersPanel.setBounds(0, 80, 500, 373);
@@ -85,14 +85,14 @@ public class OrdersScreen extends MoviesFrame {
             public void valueChanged(ListSelectionEvent event) {
                 JList source = (JList)event.getSource();
                 int selectedOrder = source.getSelectedIndex();
-                String content = Manager.getOrderInfo(selectedOrder);
+                String content = ProgramManager.getOrderInfo(selectedOrder);
                 textArea.setText(content);
             }
         });
 
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                Manager.backToMainScreen();
+                ProgramManager.backToMainScreen();
             }
         });
     }

@@ -43,19 +43,19 @@ public class MainScreen extends MoviesFrame {
 
         showMoviesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                Manager.switchToMoviesWindow();
+                ProgramManager.switchToMoviesWindow();
             }
         });
 
         showOrdersButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                Manager.switchToOrdersWindow();
+                ProgramManager.switchToOrdersWindow();
             }
         });
 
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                boolean flag = Manager.loginUser();
+                boolean flag = ProgramManager.loginUser();
 
                 if(flag)
                     showOrdersButton.setEnabled(true);
