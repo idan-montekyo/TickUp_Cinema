@@ -6,6 +6,7 @@ public class Main {
         runProgram();
     }
 
+    // Runs the app manager
     private static void runProgram(){
         ProgramManager manager = new ProgramManager();
 
